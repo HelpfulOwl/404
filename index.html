@@ -50,7 +50,7 @@
                     <div class="input-group">
                             <div class="input-group-prepend">
                               <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recently Searched</button>
-                              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                              <button id= "searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                               <input id= "mapSearch" class="form-control mr-sm-2" type="search" placeholder="Search me!" aria-label="Search">
                               <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">List 1</a>
@@ -146,10 +146,11 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyyAh4A8PqnQBj9amUHW_5kUUPbkIzXGQ&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyyAh4A8PqnQBj9amUHW_5kUUPbkIzXGQ&callback=initMap&callback=initAutocomplete&libraries=places"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyyAh4A8PqnQBj9amUHW_5kUUPbkIzXGQ&libraries=places"></script> -->
     <script src="assets/app.js"></script>
     <script src="assets/google.js"></script>
-    <script src="assets/weather.js"></script>
+    <!-- <script src="assets/weather.js"></script> -->
     <script src="assets/nature.js"></script>
 
 </body>
