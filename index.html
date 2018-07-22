@@ -11,28 +11,25 @@
     <link rel= "stylesheet" href="assets/style.css">
 
     <title>Fair Weather Hiker</title>
-  <style>
-      /* Set the size of the div element that contains the map */
-      #googleMap {
-        height: 400px;  /* The height is 400 pixels */
-        width: 100%;  /* The width is the width of the web page */
-       }
 
-  </style>
 </head>
-<body>
+<body background="assets/images/logBG.jpeg">
     <div class="container">
     <header>
-        <div class="card">
-            <div class="card-body">
-              Fair Weather Hiker Banner Goes here!
-            </div>
-          </div>
+            <div class="card bg-dark text-white">
+                    <img class="card-img" src="assets/images/fwhBanner2.jpg" alt="Card image">
+                    <div class="card-img-overlay">
+                        <br>
+                      <h1 class="card-title">Fair Weather Hiker</h1>
+                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text">Last updated 3 mins ago</p>
+                    </div>
+                  </div>
     </header>
     <div class="row">
 
         <div class="col-md-12">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" href="#">Fair Weather Hiker</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -72,13 +69,13 @@
 
         </div>
     </div>
+    <br>
     <div class="row">
         <div class="col-md-8">
 
-            <div class="jumbotron jumbotron-fluid">
+            <div class="jumbotron jumbotron-fluid bg-dark">
                 <div class="container">
-                  <h1 class="display-4">Fluid jumbotron</h1>
-                  <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                  <h1 class="display-4">Hiking Map</h1>
                   <div id= "googleMap" class= "card"></div>
                   
                 </div>
@@ -86,14 +83,29 @@
 
         </div>
         <div class="col-md-4">
-            <div class="card text-center">
+            <div class="card text-center bg-dark">
                 <div class="card-header">
                   Featured
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">Special title treatment</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Display next few days here???
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                                <div class="card" style="width: 35rem;">
+                                        <div class="card-body">
+                                          <h5 class="card-title">Card title</h5>
+                                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <a href="#" class="card-link">Card link</a>
+                                          <a href="#" class="card-link">Another link</a>
+                                        </div>
+                                      </div>
+                        </div>
+                      </div>
                 </div>
                 <div class="card-footer text-muted">
                   2 days ago
@@ -104,12 +116,12 @@
 
 
 <!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         Launch demo modal
-      </button> -->
+      </button>
       
       <!-- Modal -->
-      <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -127,19 +139,15 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
 
 
 
     
-    <footer>
-        <div class="card">
-            <div class="card-body">
-              This is our awesome footer!
-            </div>
-          </div>
-    </footer>
+    <div class="footer">
+    <p>Footer</p>
     </div>
+        </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
