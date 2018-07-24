@@ -88,22 +88,24 @@
                   Featured
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <h5 class="card-title"></h5>
+                  <p class="card-text" id="summary"></p>
+                  <p class="card-text" id="temp"></p>
+                  <p class="card-text" id="nsd"></p>
                   <div class="btn-group">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Display next few days here???
+                          Further weather information
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
                                 <div class="card" style="width: 35rem;">
-                                        <div class="card-body">
-                                          <h5 class="card-title">Card title</h5>
-                                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                          <a href="#" class="card-link">Card link</a>
-                                          <a href="#" class="card-link">Another link</a>
-                                        </div>
-                                      </div>
+                                  <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                  </div><!--Closes card body-->
+                                </div>
                         </div>
                       </div>
                 </div>
@@ -151,7 +153,9 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyyAh4A8PqnQBj9amUHW_5kUUPbkIzXGQ&callback=initMap&callback=initAutocomplete&libraries=places"></script>
@@ -159,7 +163,9 @@
     <script src="assets/app.js"></script>
     <script src="assets/google.js"></script>
     <!-- <script src="assets/weather.js"></script> -->
-    <script src="assets/nature.js"></script>
+    <script src="assets/weather.js"></script>
+    <!-- <script src="assets/nature.js"></script> -->
+   
 
 </body>
 </html>
