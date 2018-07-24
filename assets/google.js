@@ -1,5 +1,5 @@
-var latitude = 35.994034;
-var longitude = -78.898621;
+
+
 
 
 // function initMap() {
@@ -16,10 +16,18 @@ var longitude = -78.898621;
     //declaring lat and long variable for future manipulation
 //generates google map and finds current location
 function initAutocomplete() {
+
+    var latitude = 35.994034;
+    var longitude = -78.898621;
+
+        // var mapData = {
+        //     location: 
+        // }
+    //*****************Geolocation on load****************** */
     var map, infoWindow;
     // function initMap() {
       map = new google.maps.Map(document.getElementById('googleMap'), {
-        center: {lat: 35.994034, long: -78.898621},
+        center: {lat: latitude, long: longitude},
         zoom: 10
       });
       infoWindow = new google.maps.InfoWindow;
@@ -60,7 +68,7 @@ function initAutocomplete() {
       infoWindow.open(map);
     }
 
-
+    //******************Search Box*********************/
     //search function for google maps
     // $("#searchButton").on("click",
     // var map = new google.maps.Map(document.getElementById('googleMap'), {
@@ -128,8 +136,12 @@ function initAutocomplete() {
           map.fitBounds(bounds);
         });
       
+
+        //*****************placing multiple markers on a map******************** */
       function initialize() {
-        var center = new google.maps.LatLng(37.4419, -122.1419);
+        // var center = new google.maps.LatLng(latitude, longitude);
+
+        // var center = pos;
     
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 3,
@@ -139,7 +151,7 @@ function initAutocomplete() {
     
         var markers = [];
         for (var i = 0; i < 100; i++) {
-          var location = yourData.location[i];
+          var location = mapData.location[i];
           var latLng = new google.maps.LatLng(location.latitude,
               location.longitude);
           var marker = new google.maps.Marker({
