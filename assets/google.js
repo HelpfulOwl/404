@@ -16,7 +16,7 @@
 
     //declaring lat and long variable for future manipulation
 //generates google map and finds current location
-function initAutocomplete() {
+
 
     var latitude = 35.994034;
     var longitude = -78.898621;
@@ -25,10 +25,7 @@ function initAutocomplete() {
         //     location: 
         // }
     //*****************Geolocation on load****************** */
-    var map, infoWindow;
-    // function initMap() {
-      map = new google.maps.Map(document.getElementById('googleMap'), {
-        center: {lat: latitude, long: longitude},
+
 
 //generates google map and finds current location
 function initAutocomplete() {
