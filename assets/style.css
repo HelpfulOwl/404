@@ -9,6 +9,9 @@
 .card-text {
     color: white;
 }
+.card-text-w {
+    color: black;
+}
 
 .card-header {
     color: white;
