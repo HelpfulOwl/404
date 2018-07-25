@@ -1,23 +1,57 @@
+
+
+
+
+
 // function initMap() {
-//     The location of Uluru
+//     // The location of Uluru
 //     var uluru = {lat: -25.344, lng: 131.036};
 //     // The map, centered at Uluru
 //     var map = new google.maps.Map(
-//         document.getElementById('googleMap'), {zoom: 4, center: uluru});
+//         document.getElementById('map'), {zoom: 4, center: uluru});
 //     // The marker, positioned at Uluru
 //     var marker = new google.maps.Marker({position: uluru, map: map});
+//   }
 
-// var latitude = 0;
-// var longitude = 0;
+
+    //declaring lat and long variable for future manipulation
+//generates google map and finds current location
+var mapData = [
+  {lat: 35.994034, lng: -78.897621},
+  {lat: 35.994034, lng: -78.897634},
+  {lat: 35.994034, lng: -78.897656},
+  {lat: 35.994034, lng: -78.897638},
+  {lat: 35.994034, lng: -78.897690}
+]
+
+    var latitude = 35.994034;
+    var longitude = -78.898621;
+
+        // var mapData = {
+        //     location: 
+        // }
+    //*****************Geolocation on load****************** */
+
+
 //generates google map and finds current location
 function initAutocomplete() {
     var map, infoWindow;
     // function initMap() {
       map = new google.maps.Map(document.getElementById('googleMap'), {
         center: {lat: 35.994034, lng: -78.898621},
+
         zoom: 10
       });
       infoWindow = new google.maps.InfoWindow;
+
+
+    //   function initMap(){
+    //   //adding markers on map
+    //   var location = {lat: latitude, long: longitude},
+    //   var marker = new google.maps.Marker({position: location, map: map});
+    //     }
+    //     initMap();
+
 
       // Try HTML5 geolocation.
       if (navigator.geolocation) {
@@ -48,6 +82,7 @@ function initAutocomplete() {
       infoWindow.open(map);
     }
 
+    //******************Search Box*********************/
 
     //search function for google maps
     // $("#searchButton").on("click",
@@ -115,7 +150,48 @@ function initAutocomplete() {
           });
           map.fitBounds(bounds);
         });
-      }
-    // );
 
-//   }
+
+        //*****************placing multiple markers on a map******************** */
+      // function initialize() {
+      //   // var center = new google.maps.LatLng(latitude, longitude);
+
+      //   // var center = pos;
+    
+      //   var map = new google.maps.Map(document.getElementById('map'), {
+      //     zoom: 3,
+      //     center: center,
+      //     mapTypeId: google.maps.MapTypeId.ROADMAP
+      //   });
+    // mapMarkers{
+
+    // }
+        // var mapMarkers = [];
+      
+        for (var i = 0; i < mapData.length; i++) {
+          // var lat = mapData.lat[i];
+          // var long = mapData.lng[i];
+          // var latLng = new google.maps.LatLng(35.994034,
+          //   -78.897690);
+          new google.maps.Marker({
+            position: {lat: mapData[i].lat, lng: mapData[i].lng},
+            map:map,
+          });
+          // mapMarkers.push(marker);
+        }
+        // var markerCluster = new MarkerClusterer(map, mapMarkers);
+        // google.maps.event.addDomListener(window, 'load', initialize);
+      }
+    // }
+    //   function initMap() {
+    //     var location = {lat: latitude, long: longitude};
+    //     // The map, centered at Uluru
+    //     var map = new google.maps.Map(
+    //         document.getElementById('googleMap'), {zoom: 4, center: location});
+    //     // The marker, positioned at Uluru
+    //     var marker = new google.maps.Marker({position: location, map: map});
+    //     }
+    //     initMap();
+    // );
+    // initMap(35, -78);
+
