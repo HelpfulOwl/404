@@ -16,7 +16,13 @@
 
     //declaring lat and long variable for future manipulation
 //generates google map and finds current location
-
+var mapData = [
+  {lat: 35.994034, lng: -78.897621},
+  {lat: 35.994034, lng: -78.897634},
+  {lat: 35.994034, lng: -78.897656},
+  {lat: 35.994034, lng: -78.897638},
+  {lat: 35.994034, lng: -78.897690}
+]
 
     var latitude = 35.994034;
     var longitude = -78.898621;
@@ -147,31 +153,36 @@ function initAutocomplete() {
 
 
         //*****************placing multiple markers on a map******************** */
-      function initialize() {
-        // var center = new google.maps.LatLng(latitude, longitude);
+      // function initialize() {
+      //   // var center = new google.maps.LatLng(latitude, longitude);
 
-        // var center = pos;
+      //   // var center = pos;
     
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 3,
-          center: center,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        });
-    
-        var markers = [];
-        for (var i = 0; i < 100; i++) {
-          var location = mapData.location[i];
-          var latLng = new google.maps.LatLng(location.latitude,
-              location.longitude);
-          var marker = new google.maps.Marker({
-            position: latLng
+      //   var map = new google.maps.Map(document.getElementById('map'), {
+      //     zoom: 3,
+      //     center: center,
+      //     mapTypeId: google.maps.MapTypeId.ROADMAP
+      //   });
+    // mapMarkers{
+
+    // }
+        // var mapMarkers = [];
+      
+        for (var i = 0; i < mapData.length; i++) {
+          // var lat = mapData.lat[i];
+          // var long = mapData.lng[i];
+          // var latLng = new google.maps.LatLng(35.994034,
+          //   -78.897690);
+          new google.maps.Marker({
+            position: {lat: mapData[i].lat, lng: mapData[i].lng},
+            map:map,
           });
-          markers.push(marker);
+          // mapMarkers.push(marker);
         }
-        var markerCluster = new MarkerClusterer(map, markers);
+        // var markerCluster = new MarkerClusterer(map, mapMarkers);
+        // google.maps.event.addDomListener(window, 'load', initialize);
       }
-      google.maps.event.addDomListener(window, 'load', initialize);
-    }
+    // }
     //   function initMap() {
     //     var location = {lat: latitude, long: longitude};
     //     // The map, centered at Uluru
