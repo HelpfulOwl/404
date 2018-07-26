@@ -21,4 +21,3 @@ function renderHTML(data) {
     hikingContainer.insertAdjacentElement('beforeend' , 'testing 123');
 }
 
-

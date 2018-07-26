@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple Markers</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 90%;
+        width: 90%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+
+var latitude = 35.994034;
+var longitude = -78.897634;
+
+function initMap() {
+
+    // function displayMarker() {
+    // var marker = $(this).attr("data-name");
+    var queryURL = 'https://www.hikingproject.com/data/get-trails?      lat='
+        + latitude + '&lon='
+        + longitude + '&maxDistance=10&        key=200310958-80eadbd0eda211e9f1bec2cca75b17cb';
+
+     var mapData = [
+      {lat: latitude, lng: longitude},
+    //   {lat: 35.994034, lng: -78.897656},
+    //   {lat: 35.994034, lng: -78.897638},
+    //   {lat: 35.994034, lng: -78.897690}
+    ];
+ $.ajax({
+     url:queryURL,
+     method: "GET"
+    }).then(function(response) {
+     console.log(response);
+
+     var trails = response.trails;
+     for (var i=0; i <= trails.length; i++)
+
+     latitude = response.trails[i].latitude;
+     longitude = response.trails[i].longitude;
+
+     console.log(trails);
+     console.log(latitude);
+     console.log(longitude);
+
+      var myLatLng = {lat: 35.994034, lng: -78.897621};
+      var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: myLatLng
+        });
+        for (var i = 0; i < mapData.length; i++) {
+            new google.maps.Marker({
+                position: { lat: latitude, lng: longitude},
+                map: map,
+                title: 'Hello World!'
+            });
+        }
+    }); 
+}
+// displayMarker();
+// }
+    </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+     <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyyAh4A8PqnQBj9amUHW_5kUUPbkIzXGQ&callback=initMap">
+    </script> 
+  </body>
+</html>
+
+
