@@ -13,24 +13,28 @@
     <title>Fair Weather Hiker</title>
 
 </head>
+
+
 <body background="assets/images/logBG.jpeg">
     <div class="container">
     <header>
             <div class="card bg-dark text-white">
-                    <img class="card-img" src="assets/images/fwhBanner2.jpg" alt="Card image">
+                  <img class="card-img" src="assets/images/fwhBanner2.jpg" alt="Card image">
                     <div class="card-img-overlay">
-                        <br>
-                      <h1 class="card-title">Fair Weather Hiker</h1>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text">Last updated 3 mins ago</p>
+                      <br>
+
+                      <h1 class="card-title-t display-4">Fair Weather Hiker</h1>
+
+
                     </div>
-                  </div>
+            </div>
     </header>
     <div class="row">
 
         <div class="col-md-12">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" href="#">Fair Weather Hiker</a>
+                
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -40,79 +44,75 @@
                     <li class="nav-item active">
                       <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
+
                     <li class="nav-item">
                       <a class="nav-link" href="#">Contact Us!</a>
                     </li>
+
                     <li>
                     <div class="input-group">
-                            <div class="input-group-prepend">
-                              <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recently Searched</button>
-                              <button id= "searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                              <input id= "mapSearch" class="form-control mr-sm-2" type="search" placeholder="Search me!" aria-label="Search">
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">List 1</a>
-                                <a class="dropdown-item" href="#">List 2</a>
-                                <a class="dropdown-item" href="#">List 3</a>
-                                <div role="separator" class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Most Recent Search</a>
-                              </div>
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recently Searched</button>
+                            <button id= "searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            <input id= "mapSearch" class="form-control mr-sm-2" type="search" placeholder="Search me!" aria-label="Search">
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">List 1</a>
+                              <a class="dropdown-item" href="#">List 2</a>
+                              <a class="dropdown-item" href="#">List 3</a>
+                            <div role="separator" class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Most Recent Search</a>
                             </div>
-                          </div>
-                          </li>
+                        </div>
+                    </div>
+                    </li>
                     
                   </ul>
 
                 </div>
-              </nav>
-
-
-
+            </nav>
         </div>
     </div>
+    
     <br>
+    
     <div class="row">
         <div class="col-md-8">
-
             <div class="jumbotron jumbotron-fluid bg-dark">
                 <div class="container">
-                  <h1 class="display-4">Hiking Map</h1>
-                  <div id= "googleMap" class= "card"></div>
-                  
+                  <h1 class="display-5">Hiking Map</h1>
+                  <div id= "googleMap" class= "card"></div> 
                 </div>
-              </div>
-
+            </div>
         </div>
+
         <div class="col-md-4">
             <div class="card text-center bg-dark">
-                <div class="card-header">
-                  Featured
-                </div>
+                <div class="card-header">Featured</div>
                 <div class="card-body">
                   <h5 class="card-title"></h5>
                   <p class="card-text" id="summary"></p>
                   <p class="card-text" id="temp"></p>
                   <p class="card-text" id="nsd"></p>
-                  <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Further weather information
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                                <div class="card" style="width: 35rem;">
-                                  <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
-                                  </div><!--Closes card body-->
-                                </div>
-                        </div>
-                      </div>
+                <div class="btn-group">
+
+                  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Further weather information</button>
+
+                <div class="dropdown-menu dropdown-menu-right bg-dark">
+                    <div class="card bg-dark" style="width: 35rem;">
+                        <div class="card-body bg-dark">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text-w">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="https://darksky.net/forecast/35.994034,-78.898621/us12/en" target="_blank" class="card-link">Full Weather Summary</a>
+                            <a href="#" class="card-link">Another link</a>         
+                        </div><!--Closes card body-->
+                    </div>
                 </div>
-                <div class="card-footer text-muted">
-                  2 days ago
                 </div>
-              </div>
+                </div>
+
+                  <div class="card-footer text-muted">2 days ago</div>
+            </div>
         </div>
     </div>
 
@@ -149,7 +149,7 @@
     <div class="footer">
     <p>Footer</p>
     </div>
-        </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
