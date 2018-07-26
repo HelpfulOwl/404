@@ -49,10 +49,10 @@ function initMap() {
      console.log(response);
 
      var trails = response.trails;
-     for (var i=0; i <= trails.length; i++)
+    //  for (var i=0; i <= trails.length; i++)
 
-     latitude = response.trails[i].latitude;
-     longitude = response.trails[i].longitude;
+    //  var latitude = response.trails[i].latitude;
+    //  var longitude = response.trails[i].longitude;
 
      console.log(trails);
      console.log(latitude);
@@ -63,9 +63,9 @@ function initMap() {
           zoom: 4,
           center: myLatLng
         });
-        for (var i = 0; i < mapData.length; i++) {
+        for (var i = 0; i < trails.length; i++) {
             new google.maps.Marker({
-                position: { lat: latitude, lng: longitude},
+                position: { lat: response.trails[i].latitude, lng: response.trails[i].longitude},
                 map: map,
                 title: 'Hello World!'
             });
