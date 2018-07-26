@@ -34,7 +34,7 @@ function initMap() {
     // var marker = $(this).attr("data-name");
     var queryURL = 'https://www.hikingproject.com/data/get-trails?      lat='
         + latitude + '&lon='
-        + longitude + '&maxDistance=10&        key=200310958-80eadbd0eda211e9f1bec2cca75b17cb';
+        + longitude + '&maxResults=100&        key=200310958-80eadbd0eda211e9f1bec2cca75b17cb';
 
      var mapData = [
       {lat: latitude, lng: longitude},
@@ -49,6 +49,7 @@ function initMap() {
      console.log(response);
 
      var trails = response.trails;
+    //  var trailName = response.trail
     //  for (var i=0; i <= trails.length; i++)
 
     //  var latitude = response.trails[i].latitude;
@@ -67,7 +68,7 @@ function initMap() {
             new google.maps.Marker({
                 position: { lat: response.trails[i].latitude, lng: response.trails[i].longitude},
                 map: map,
-                title: 'Hello World!'
+                title: response.trails[i].name
             });
         }
     }); 

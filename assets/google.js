@@ -16,16 +16,16 @@
 
     //declaring lat and long variable for future manipulation
 //generates google map and finds current location
-var mapData = [
-  {lat: 35.994034, lng: -78.897621},
-  {lat: 35.994034, lng: -78.897634},
-  {lat: 35.994034, lng: -78.897656},
-  {lat: 35.994034, lng: -78.897638},
-  {lat: 35.994034, lng: -78.897690}
-]
+// var mapData = [
+//   {lat: 35.994034, lng: -78.897621},
+//   {lat: 35.994034, lng: -78.897634},
+//   {lat: 35.994034, lng: -78.897656},
+//   {lat: 35.994034, lng: -78.897638},
+//   {lat: 35.994034, lng: -78.897690}
+// ]
 
-    var latitude = 35.994034;
-    var longitude = -78.898621;
+//     var latitude = 35.994034;
+//     var longitude = -78.898621;
 
         // var mapData = {
         //     location: 
@@ -138,9 +138,9 @@ function initAutocomplete() {
               map: map,
               icon: icon,
               title: place.name,
-              position: place.geometry.location
+              position: place.geometry.location,
+              zoom: 10
             }));
-
             if (place.geometry.viewport) {
               // Only geocodes have viewport.
               bounds.union(place.geometry.viewport);
@@ -156,17 +156,36 @@ function initAutocomplete() {
  
         
       
-        for (var i = 0; i < mapData.length; i++) {
-        //   // var lat = mapData.lat[i];
-        //   // var long = mapData.lng[i];
-        //   // var latLng = new google.maps.LatLng(35.994034,
-        //   //   -78.897690);
-          new google.maps.Marker({
-            position: {lat: mapData[i].lat, lng: mapData[i].lng},
-            map:map,
-          });
-       
-        }
+        var queryURL = 'https://www.hikingproject.com/data/get-trails?lat='+ 
+        latitude + '&lon='+ 
+        longitude + '&maxResults=200&key=200310958-80eadbd0eda211e9f1bec2cca75b17cb';
+    
+        
+     $.ajax({
+         url:queryURL,
+         method: "GET"
+        }).then(function(response) {
+         console.log(response);
+    
+         var trails = response.trails;
+    
+         console.log(trails);
+         console.log(latitude);
+         console.log(longitude);
+    
+          // var myLatLng = {lat: 35.994034, lng: -78.897621};
+          // var map = new google.maps.Map(document.getElementById('map'), {
+          //     zoom: 4,
+          //     center: myLatLng
+            // });
+            for (var i = 0; i < trails.length; i++) {
+                new google.maps.Marker({
+                    position: { lat: response.trails[i].latitude, lng: response.trails[i].longitude},
+                    map: map,
+                    title: response.trails[i].name,
+                });
+            }
+        }); 
       
       }
 
