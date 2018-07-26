@@ -1,8 +1,12 @@
-var lat = 35.834444;
-var lon = -78.840821;
+// var lat = 35.834444;
+// var lon = -78.840821;
+
+function hello() {
+    console.log('oh hi')
+} 
 
 
-function APIcall(){
+function APIcall(lat, lon){
     var APIkey = "6d0904d150c48c780a450173fe05427a";
     var queryURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/6d0904d150c48c780a450173fe05427a/"+lat+","+lon;
 
@@ -16,9 +20,6 @@ function APIcall(){
         var temperature = response.currently.temperature;//in farenheit.
         var nsd = response.currently.nearestStormDistance; //distance is in kilometers. Need to convert.
         var cNSD = nsd*0.62;//converts kilometers to miles.
-        var time = response.currently.time; //this give 
-        //console.log("TIME: ", moment.unix(time))//this give the current date.
-        //console.log("DAY: ", 
         
         displayWeather(summary,temperature,cNSD);
 
@@ -27,7 +28,7 @@ function APIcall(){
             var dTempH = response.daily.data[i+1].apparentTemperatureHigh;///daily High Temperature.
             var dTempL = response.daily.data[i+1].apparentTemperatureLow;//daily Low Temperature.
             var dTime = response.daily.data[i+1].time;
-            var cTime = timeConverter(dTime);
+            var cTime = timeConverter(dTime);//this converts a UNIX timestamp to a readable date.
             var wTime = $("#date"+i);
             var sum = $("#summary"+i);
             var temH = $("#tempHi"+i);
@@ -56,15 +57,15 @@ function displayWeather (sum, temperature, nsd) {
     near.text("Storm is " +cnsd+" miles away.");
 };
 
-APIcall();
+// APIcall();
 
 
 // K * 9/5 - 459.67; to convert kelving to fahrenheit.
 //https://api.darksky.net/forecast/6d0904d150c48c780a450173fe05427a/[latitude],[longitude]
 //current weather currently.temperature... currently.summary
 
-function timeConverter(UNIX_timestamp){
-    var a = new Date(UNIX_timestamp * 1000);
+function timeConverter(UNIX){
+    var a = new Date(UNIX * 1000);
     var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
     var year = a.getFullYear();
     var month = months[a.getMonth()];
@@ -76,5 +77,8 @@ function timeConverter(UNIX_timestamp){
     console.log(cTime);
     return cTime;
   };
-
+//    $.getScript('google.js', function(){
+   // script is now loaded and executed.
+   // put your dependent JS here.
+// });
   

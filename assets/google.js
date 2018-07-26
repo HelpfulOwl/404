@@ -92,9 +92,13 @@ function initAutocomplete() {
     //         mapTypeId: 'roadmap'
         // });
         console.log(google);
+        
         // Create the search box and link it to the UI element.
         var input = document.getElementById('mapSearch');
         var searchBox = new google.maps.places.SearchBox(input);
+        
+        console.log(searchBox, 'the search box')
+      
         // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
         
         // Bias the SearchBox results towards current map's viewport.
@@ -139,6 +143,7 @@ function initAutocomplete() {
               icon: icon,
               title: place.name,
               position: place.geometry.location
+              
             }));
 
             if (place.geometry.viewport) {
@@ -195,3 +200,7 @@ function initAutocomplete() {
     // );
     // initMap(35, -78);
 
+
+    hello()
+    
+      APIcall(latitude, longitude)
