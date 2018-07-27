@@ -179,11 +179,19 @@ function initAutocomplete() {
           //     center: myLatLng
             // });
             for (var i = 0; i < trails.length; i++) {
+            
                 new google.maps.Marker({
                     position: { lat: response.trails[i].latitude, lng: response.trails[i].longitude},
                     map: map,
                     title: response.trails[i].name,
+                  
                 });
+                //my code here nature js
+                
+              // $("#trailInfo").append(trails.name(){
+              //     console.log(trails);
+              //     console.log()
+              // });
             }
         }); 
       
