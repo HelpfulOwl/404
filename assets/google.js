@@ -1,35 +1,4 @@
 
-
-
-
-
-// function initMap() {
-//     // The location of Uluru
-//     var uluru = {lat: -25.344, lng: 131.036};
-//     // The map, centered at Uluru
-//     var map = new google.maps.Map(
-//         document.getElementById('map'), {zoom: 4, center: uluru});
-//     // The marker, positioned at Uluru
-//     var marker = new google.maps.Marker({position: uluru, map: map});
-//   }
-
-
-    //declaring lat and long variable for future manipulation
-//generates google map and finds current location
-// var mapData = [
-//   {lat: 35.994034, lng: -78.897621},
-//   {lat: 35.994034, lng: -78.897634},
-//   {lat: 35.994034, lng: -78.897656},
-//   {lat: 35.994034, lng: -78.897638},
-//   {lat: 35.994034, lng: -78.897690}
-// ]
-
-//     var latitude = 35.994034;
-//     var longitude = -78.898621;
-
-        // var mapData = {
-        //     location: 
-        // }
     //*****************Geolocation on load****************** */
 
 
@@ -43,14 +12,6 @@ function initAutocomplete() {
         zoom: 10
       });
       infoWindow = new google.maps.InfoWindow;
-
-
-    //   function initMap(){
-    //   //adding markers on map
-    //   var location = {lat: latitude, long: longitude},
-    //   var marker = new google.maps.Marker({position: location, map: map});
-    //     }
-    //     initMap();
 
 
       // Try HTML5 geolocation.
@@ -92,9 +53,9 @@ function initAutocomplete() {
         var input = document.getElementById('mapSearch');
         var searchBox = new google.maps.places.SearchBox(input);
         
-        console.log(searchBox, 'the search box')
+        console.log(searchBox, 'the search box');
       
-        // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        
         
         // Bias the SearchBox results towards current map's viewport.
         map.addListener('bounds_changed', function() {
@@ -136,6 +97,8 @@ function initAutocomplete() {
                     });
                 }
             }); 
+
+            //***********************space for hiking information******************** */
 
         });
         
