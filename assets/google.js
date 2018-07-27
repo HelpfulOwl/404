@@ -16,16 +16,16 @@
 
     //declaring lat and long variable for future manipulation
 //generates google map and finds current location
-var mapData = [
-  {lat: 35.994034, lng: -78.897621},
-  {lat: 35.994034, lng: -78.897634},
-  {lat: 35.994034, lng: -78.897656},
-  {lat: 35.994034, lng: -78.897638},
-  {lat: 35.994034, lng: -78.897690}
-]
+// var mapData = [
+//   {lat: 35.994034, lng: -78.897621},
+//   {lat: 35.994034, lng: -78.897634},
+//   {lat: 35.994034, lng: -78.897656},
+//   {lat: 35.994034, lng: -78.897638},
+//   {lat: 35.994034, lng: -78.897690}
+// ]
 
-    var latitude = 35.994034;
-    var longitude = -78.898621;
+//     var latitude = 35.994034;
+//     var longitude = -78.898621;
 
         // var mapData = {
         //     location: 
@@ -84,13 +84,8 @@ function initAutocomplete() {
 
     //******************Search Box*********************/
 
-    //search function for google maps
-    // $("#searchButton").on("click",
-    // var map = new google.maps.Map(document.getElementById('googleMap'), {
-    //         center: {lat: 28.38, lng: 81.56},
-    //         zoom: 13,
-    //         mapTypeId: 'roadmap'
-        // });
+    
+        
         console.log(google);
         
         // Create the search box and link it to the UI element.
@@ -105,12 +100,46 @@ function initAutocomplete() {
         map.addListener('bounds_changed', function() {
             searchBox.setBounds(map.getBounds());
             console.log(map.getBounds());
+
             var wLat =map.center.lat();
             var wLong = map.center.lng();
             console.log("Latitude: "+wLat);
             console.log("Long: "+wLong);
             APIcall(wLat, wLong);
+
+
+             //*****************placing multiple markers on a map******************** */
+            var googleLat = map.center.lat();
+            var googleLong = map.center.lng();
+            console.log("eventlistener Lat" + googleLat);
+            console.log("eventlistener long" + googleLong);          
+            var queryURL = 'https://www.hikingproject.com/data/get-trails?lat='+ 
+            googleLat + '&lon='+ 
+            googleLong + '&maxResults=200&key=200310958-80eadbd0eda211e9f1bec2cca75b17cb';
+        
+            
+         $.ajax({
+             url:queryURL,
+             method: "GET"
+            }).then(function(response) {
+             console.log(response);
+        
+             var trails = response.trails;
+        
+             console.log(trails);
+            
+                for (var i = 0; i < trails.length; i++) {
+                    new google.maps.Marker({
+                        position: { lat: response.trails[i].latitude, lng: response.trails[i].longitude},
+                        map: map,
+                        title: response.trails[i].name,
+                    });
+                }
+            }); 
+
         });
+        
+
         
         var markers = [];
         // Listen for the event fired when the user selects a prediction and retrieve
@@ -151,10 +180,12 @@ function initAutocomplete() {
               map: map,
               icon: icon,
               title: place.name,
+
               position: place.geometry.location
               
-            }));
+            
 
+            }));
             if (place.geometry.viewport) {
               // Only geocodes have viewport.
               bounds.union(place.geometry.viewport);
@@ -164,53 +195,6 @@ function initAutocomplete() {
           });
           map.fitBounds(bounds);
         });
+}
 
 
-        //*****************placing multiple markers on a map******************** */
-      // function initialize() {
-      //   // var center = new google.maps.LatLng(latitude, longitude);
-
-      //   // var center = pos;
-    
-      //   var map = new google.maps.Map(document.getElementById('map'), {
-      //     zoom: 3,
-      //     center: center,
-      //     mapTypeId: google.maps.MapTypeId.ROADMAP
-      //   });
-    // mapMarkers{
-
-    // }
-        // var mapMarkers = [];
-      
-        for (var i = 0; i < mapData.length; i++) {
-          // var lat = mapData.lat[i];
-          // var long = mapData.lng[i];
-          // var latLng = new google.maps.LatLng(35.994034,
-          //   -78.897690);
-          new google.maps.Marker({
-            position: {lat: mapData[i].lat, lng: mapData[i].lng},
-            map:map,
-          });
-          // mapMarkers.push(marker);
-        }
-        
-        // var markerCluster = new MarkerClusterer(map, mapMarkers);
-        // google.maps.event.addDomListener(window, 'load', initialize);
-      }
-    // }
-    //   function initMap() {
-    //     var location = {lat: latitude, long: longitude};
-    //     // The map, centered at Uluru
-    //     var map = new google.maps.Map(
-    //         document.getElementById('googleMap'), {zoom: 4, center: location});
-    //     // The marker, positioned at Uluru
-    //     var marker = new google.maps.Marker({position: location, map: map});
-    //     }
-    //     initMap();
-    // );
-    // initMap(35, -78);
-
-
-    hello()
-    
-      
