@@ -1,6 +1,7 @@
 
 .display-5 {
     color: white;
+    text-align: center;
     margin-top: -35px;
 }
 
@@ -34,6 +35,16 @@
     margin-top: 10px;
    }
 
+#trailInfo {
+    background-color: green;
+    color: white;
+    text-align: center;
+}
+
+hr {
+    background-color: green;
+}
+
 
 .footer {
    position: fixed;
@@ -44,3 +55,4 @@
    color: white;
    text-align: center;
 }
+
