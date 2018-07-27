@@ -177,6 +177,6 @@ function initAutocomplete() {
           });
           map.fitBounds(bounds);
         });
+}
 
-      }
 

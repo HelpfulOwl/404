@@ -1,5 +1,14 @@
-.display-4 {
+
+.display-5 {
     color: white;
+    margin-top: -35px;
+}
+
+/* color for the title in the banner */
+.card-title-t {
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-shadow: -1px 0 rgb(17, 117, 117), 0 1px rgb(17, 117, 117), 1px 0 rgb(17, 117, 117), 0 -1px rgb(17, 117, 117);
 }
 
 .card-title {
@@ -10,6 +19,11 @@
     color: white;
 }
 
+/* the text for the weather drop-down */
+.card-text-w { 
+    color: white;
+}
+
 .card-header {
     color: white;
 }
@@ -17,6 +31,7 @@
 #googleMap {
     height: 400px;  /* The height is 400 pixels */
     width: 100%;  /* The width is the width of the web page */
+    margin-top: 10px;
    }
 
 
