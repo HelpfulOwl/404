@@ -1,10 +1,3 @@
-// var lat = 35.834444;
-// var lon = -78.840821;
-
-function hello() {
-    console.log('oh hi')
-} 
-
 
 function APIcall(lat, lon){
     var APIkey = "6d0904d150c48c780a450173fe05427a";
@@ -49,26 +42,17 @@ function displayWeather (sum, temperature, nsd) {
     var temp = $("#temp");
     var near = $("#nsd");
     var title = $(".card-title");
-    
     title.text("Local Weather");
-
     summary.text(sum);
     temp.text(cTemp+" Farenheit");
     near.text("Storm is " +cnsd+" miles away.");
 };
 
-// APIcall();
-
-
-// K * 9/5 - 459.67; to convert kelving to fahrenheit.
-//https://api.darksky.net/forecast/6d0904d150c48c780a450173fe05427a/[latitude],[longitude]
-//current weather currently.temperature... currently.summary
-
 function timeConverter(UNIX){
-    var a = new Date(UNIX * 1000);
     var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var a = new Date(UNIX * 1000);//converts the UNIX stamp to seconds.
     var year = a.getFullYear();
-    var month = months[a.getMonth()];
+    var month = months[a.getMonth()];//gets month of timestamp and places into array.
     var date = a.getDate();
     var hour = a.getHours();
     var min = a.getMinutes();
@@ -76,9 +60,4 @@ function timeConverter(UNIX){
     var cTime = date + ' ' + month;
     console.log(cTime);
     return cTime;
-  };
-//    $.getScript('google.js', function(){
-   // script is now loaded and executed.
-   // put your dependent JS here.
-// });
-  
+};

@@ -104,6 +104,12 @@ function initAutocomplete() {
         // Bias the SearchBox results towards current map's viewport.
         map.addListener('bounds_changed', function() {
             searchBox.setBounds(map.getBounds());
+            console.log(map.getBounds());
+            var wLat =map.center.lat();
+            var wLong = map.center.lng();
+            console.log("Latitude: "+wLat);
+            console.log("Long: "+wLong);
+            APIcall(wLat, wLong);
         });
         
         var markers = [];
@@ -124,6 +130,7 @@ function initAutocomplete() {
 
           // For each place, get the icon, name and location.
           var bounds = new google.maps.LatLngBounds();
+          console.log("THIS: "+bounds);
           places.forEach(function(place) {
             if (!place.geometry) {
               console.log("Returned place contains no geometry");
@@ -136,6 +143,8 @@ function initAutocomplete() {
               anchor: new google.maps.Point(17, 34),
               scaledSize: new google.maps.Size(25, 25)
             };
+
+            
 
             // Create a marker for each place.
             markers.push(new google.maps.Marker({
@@ -184,6 +193,7 @@ function initAutocomplete() {
           });
           // mapMarkers.push(marker);
         }
+        
         // var markerCluster = new MarkerClusterer(map, mapMarkers);
         // google.maps.event.addDomListener(window, 'load', initialize);
       }
@@ -203,4 +213,4 @@ function initAutocomplete() {
 
     hello()
     
-      APIcall(latitude, longitude)
+      
