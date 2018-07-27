@@ -87,15 +87,26 @@ function initAutocomplete() {
     
         
         console.log(google);
+        
         // Create the search box and link it to the UI element.
         var input = document.getElementById('mapSearch');
         var searchBox = new google.maps.places.SearchBox(input);
+        
+        console.log(searchBox, 'the search box')
+      
         // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
         
         // Bias the SearchBox results towards current map's viewport.
         map.addListener('bounds_changed', function() {
             searchBox.setBounds(map.getBounds());
             console.log(map.getBounds());
+
+            var wLat =map.center.lat();
+            var wLong = map.center.lng();
+            console.log("Latitude: "+wLat);
+            console.log("Long: "+wLong);
+            APIcall(wLat, wLong);
+
 
              //*****************placing multiple markers on a map******************** */
             var googleLat = map.center.lat();
@@ -125,6 +136,7 @@ function initAutocomplete() {
                     });
                 }
             }); 
+
         });
         
 
@@ -147,6 +159,7 @@ function initAutocomplete() {
 
           // For each place, get the icon, name and location.
           var bounds = new google.maps.LatLngBounds();
+          console.log("THIS: "+bounds);
           places.forEach(function(place) {
             if (!place.geometry) {
               console.log("Returned place contains no geometry");
@@ -160,13 +173,18 @@ function initAutocomplete() {
               scaledSize: new google.maps.Size(25, 25)
             };
 
+            
+
             // Create a marker for each place.
             markers.push(new google.maps.Marker({
               map: map,
               icon: icon,
               title: place.name,
-              position: place.geometry.location,
-              zoom: 10
+
+              position: place.geometry.location
+              
+            
+
             }));
             if (place.geometry.viewport) {
               // Only geocodes have viewport.

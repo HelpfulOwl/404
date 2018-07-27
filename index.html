@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
     <link rel= "stylesheet" href="assets/reset.css">
@@ -93,6 +93,35 @@
                   <p class="card-text" id="summary"></p>
                   <p class="card-text" id="temp"></p>
                   <p class="card-text" id="nsd"></p>
+
+                  <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Further weather information
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                                <div class="card" style="width: 35rem;">
+                                  <div class="card-body" id="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text" id="date0"></p>
+                                    <p class="card-text" id="summary0">Some</p>
+                                    <p class="card-text" id="tempHi0"></p>
+                                    <p class="card-text" id="tempLo0"></p>
+                                    <p class="card-text" id="date1"></p>
+                                    <p class="card-text" id="summary1">Some</p>
+                                    <p class="card-text" id="tempHi1"></p>
+                                    <p class="card-text" id="tempLo1"></p>
+                                    <p class="card-text" id="date2"></p>
+                                    <p class="card-text" id="summary2">Some</p>
+                                    <p class="card-text" id="tempHi2"></p>
+                                    <p class="card-text" id="tempLo2"></p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                  </div><!--Closes card body-->
+                                </div>
+                        </div>
+                      </div>
+
                 <div class="btn-group">
 
                   <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Further weather information</button>
@@ -108,6 +137,7 @@
                         </div><!--Closes card body-->
                     </div>
                 </div>
+
                 </div>
                 </div>
 
@@ -165,6 +195,7 @@
     </div>
 
     <!-- Optional JavaScript -->
+    
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -175,9 +206,10 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyyAh4A8PqnQBj9amUHW_5kUUPbkIzXGQ&callback=initMap&callback=initAutocomplete&libraries=places"></script>
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyyAh4A8PqnQBj9amUHW_5kUUPbkIzXGQ&libraries=places"></script> -->
     <script src="assets/app.js"></script>
+    <script src="assets/weather.js"></script>
+
     <script src="assets/google.js"></script>
     <!-- <script src="assets/weather.js"></script> -->
-    <script src="assets/weather.js"></script>
     <!-- <script src="assets/nature.js"></script> -->
     <script src="assets/nature.js"></script>
     <!-- <script src="assets/radar.js"></script> -->
