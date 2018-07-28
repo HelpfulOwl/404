@@ -68,3 +68,10 @@ hr {
    text-align: center;
 }
 
+#saveButton{
+    width:75px;
+    padding:5px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+};
+

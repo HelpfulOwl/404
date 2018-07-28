@@ -60,12 +60,10 @@ function initAutocomplete() {
         // Bias the SearchBox results towards current map's viewport.
         map.addListener('bounds_changed', function() {
             searchBox.setBounds(map.getBounds());
-            console.log(map.getBounds());
 
             var wLat =map.center.lat();
             var wLong = map.center.lng();
-            console.log("Latitude: "+wLat);
-            console.log("Long: "+wLong);
+    
             APIcall(wLat, wLong);
 
 
@@ -89,7 +87,7 @@ function initAutocomplete() {
         
              console.log(trails);
             
-                for (var i = 0; i < trails.length; i++) {
+                for (let i = 0; i < trails.length; i++) {
                     var trailMarker = new google.maps.Marker({
                         position: { lat: response.trails[i].latitude, lng: response.trails[i].longitude},
                         map: map,
@@ -97,7 +95,13 @@ function initAutocomplete() {
                         
                       });
                       trailMarker.addListener('click', function() {
-                        console.log('click');
+                        console.log(i);
+                        $('#trailPhoto').attr("src", response.trails[i].imgMedium);
+                        $('#trailInfo').text("Trail name: " + response.trails[i].name + '\n' + 
+                        "Trail length: " + response.trails[i].length + '\n' +
+                        "Summary: " + response.trails[i].summary + '\n' + 
+                        "Rating: " + response.trails[i].stars + "/5"+ '\n' +
+                        "Location: " + response.trails[i].location);
                       });
                     }
             }); 
