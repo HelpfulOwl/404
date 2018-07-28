@@ -72,7 +72,7 @@ function initAutocomplete() {
             console.log("eventlistener long" + googleLong);          
             var queryURL = 'https://www.hikingproject.com/data/get-trails?lat='+ 
             googleLat + '&lon='+ 
-            googleLong + '&maxResults=200&key=200310958-80eadbd0eda211e9f1bec2cca75b17cb';
+            googleLong + '&maxResults=77&key=200310958-80eadbd0eda211e9f1bec2cca75b17cb';
         
             
          $.ajax({
@@ -86,15 +86,18 @@ function initAutocomplete() {
              
             
                 for (var i = 0; i < trails.length; i++) {
-                    new google.maps.Marker({
+                    var trailMarker = new google.maps.Marker({
                         position: { lat: response.trails[i].latitude, lng: response.trails[i].longitude},
                         map: map,
-                        title: response.trails[i].name,
-                    });
-                }
-                
-            }); 
 
+                        title: "" + response.trails[i].name + '\n' + 'Rating: ' + response.trails[i].stars,
+                        
+                      });
+                      trailMarker.addListener('click', function() {
+                        console.log('click');
+                      });
+                    }
+            }); 
             //***********************space for hiking information******************** */
 
         });
@@ -139,7 +142,7 @@ function initAutocomplete() {
             markers.push(new google.maps.Marker({
               map: map,
               icon: icon,
-              title: place.name,
+              title: place.name, 
 
               position: place.geometry.location
               
