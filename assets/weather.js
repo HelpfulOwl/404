@@ -8,7 +8,7 @@ function APIcall(lat, lon){
         method: "GET"
     })
     .then(function(response){
-        console.log(response);
+        
         var summary = response.currently.summary; //summary is sunny, mostly cloudy, etc.
         var temperature = response.currently.temperature;//in farenheit.
         var nsd = response.currently.nearestStormDistance; //distance is in kilometers. Need to convert.
@@ -41,8 +41,6 @@ function displayWeather (sum, temperature, nsd) {
     var summary = $("#summary");
     var temp = $("#temp");
     var near = $("#nsd");
-    var title = $(".card-title");
-    title.text("Local Weather");
     summary.text(sum);
     temp.text(cTemp+" Farenheit");
     near.text("Storm is " +cnsd+" miles away.");
@@ -58,6 +56,6 @@ function timeConverter(UNIX){
     var min = a.getMinutes();
     var sec = a.getSeconds();
     var cTime = date + ' ' + month;
-    console.log(cTime);
+    
     return cTime;
 };
