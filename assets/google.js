@@ -96,7 +96,7 @@ function initAutocomplete() {
                         title: response.trails[i].name,
                     });
                 }
-            }); 
+          });
 
             //***********************space for hiking information******************** */
 
