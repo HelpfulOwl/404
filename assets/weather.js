@@ -26,10 +26,10 @@ function APIcall(lat, lon){
             var sum = $("#summary"+i);
             var temH = $("#tempHi"+i);
             var temL = $("#tempLo"+i);
-            wTime.text("[Date]  "+cTime);
-            sum.text("[Summary]  "+dSum);
-            temH.text("[Highest Temperature]  "+dTempH);
-            temL.text("[Lowest Temperature]  "+dTempL);    
+            wTime.text("[Date]:  "+cTime);
+            sum.text("[Summary]:  "+dSum);
+            temH.text("[Highest Temp]:  "+dTempH);
+            temL.text("[Lowest Temp]:  "+dTempL);    
         };
     });
 };
