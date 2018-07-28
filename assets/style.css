@@ -13,6 +13,10 @@
     background-color: green;
 }
 
+#greenCard{
+    border-color: green;
+}
+
 /* color for the title in the banner */
 .card-title-t {
     color: white;
@@ -43,7 +47,7 @@
     margin-top: 10px;
    }
 
-#trailInfo {
+#trailCard {
     background-color: green;
     color: white;
     text-align: center;

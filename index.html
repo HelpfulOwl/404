@@ -18,20 +18,18 @@
 <body background="assets/images/logBG.jpeg">
     <div class="container">
     <header>
-            <div class="card bg-dark text-white">
+            <div class="card bg-dark text-white" id="greenCard">
                   <img class="card-img" src="assets/images/fwhBanner2.jpg" alt="Card image">
                     <div class="card-img-overlay">
                       <br>
-
                       <h1 class="card-title-t display-4">Fair Weather Hiker</h1>
-
-
                     </div>
             </div>
     </header>
     <div class="row">
 
         <div class="col-md-12">
+            <div class="card" id="greenCard">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" href="#">Your Location:</a>
                 
@@ -52,6 +50,7 @@
 
                 </div>
             </nav>
+            </div>
         </div>
     </div>
     
@@ -59,26 +58,32 @@
     
     <div class="row">
         <div class="col-md-8">
+
+            <div class="card bg-dark" id="greenCard">
             <div class="jumbotron jumbotron-fluid bg-dark">
                 <div class="container">
                   <h1 class="display-5">Hiking Map</h1>
                   <div id= "googleMap" class= "card"></div> 
                 </div>
             </div>
+            </div>
 
+            <br>
+
+            <div class="card" id="greenCard">
             <div class="card bg-dark text-white">
-                <img class="card-img" id="trailPhoto" src=".../100px270/#55595c:#373a3c/text:Card image" alt="Card image">
+                <img class="card-img" id="trailPhoto" src="assets/images/woodBG.jpg" alt="Card image">
                 <div class="card-img-overlay">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                   <p class="card-text">Last updated 3 mins ago</p>
                 </div>
               </div>
-
+              </div>
         </div>
 
         <div class="col-md-4">
-            <div class="text-center card bg-dark">
+            <div class="text-center card bg-dark" id="greenCard">
                 <div class="card-header">WEATHER</div>
                 <div class="card-body">
                   <p class="card-text" id="summary"></p>
@@ -93,15 +98,16 @@
                                 <div class="card bg-dark" style="width: 35rem;">
                                   <div class="card-body bg-dark" id="card-body">
                                     <h5 class="card-title">Card title</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                                     <p class="card-text" id="date0"></p>
                                     <p class="card-text" id="summary0">Some</p>
                                     <p class="card-text" id="tempHi0"></p>
                                     <p class="card-text" id="tempLo0"></p>
+                                    <br>
                                     <p class="card-text" id="date1"></p>
                                     <p class="card-text" id="summary1">Some</p>
                                     <p class="card-text" id="tempHi1"></p>
                                     <p class="card-text" id="tempLo1"></p>
+                                    <br>
                                     <p class="card-text" id="date2"></p>
                                     <p class="card-text" id="summary2">Some</p>
                                     <p class="card-text" id="tempHi2"></p>
@@ -118,17 +124,17 @@
             </div>
             <br>
 
-            <div id = "trailInfo" class="card">
+            <div class="card" id="trailCard">
                 <div class="card bg-dark">
                     <div class="card-body bg-dark">
                       <h5 class="card-title-trail">Trail Info</h5>
                       <hr>
-                      <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum..</p>
+                      <p class="card-text"  id = "trailInfo">Info goes here... </p>
                       <a href="#" class="card-link">Card link</a>
                       <a href="#" class="card-link">Another link</a>
                     </div>
                   </div>
-            </div>
+              </div>
         </div>
     </div>
 
