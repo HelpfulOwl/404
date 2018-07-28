@@ -60,8 +60,10 @@ function initAutocomplete() {
         // Bias the SearchBox results towards current map's viewport.
         map.addListener('bounds_changed', function() {
             searchBox.setBounds(map.getBounds());
+
             var wLat =map.center.lat();
             var wLong = map.center.lng();
+    
             APIcall(wLat, wLong);
 
 
@@ -83,21 +85,27 @@ function initAutocomplete() {
         
              var trails = response.trails;
         
-             
+             console.log(trails);
             
-                for (var i = 0; i < trails.length; i++) {
+                for (let i = 0; i < trails.length; i++) {
                     var trailMarker = new google.maps.Marker({
                         position: { lat: response.trails[i].latitude, lng: response.trails[i].longitude},
                         map: map,
-
                         title: "" + response.trails[i].name + '\n' + 'Rating: ' + response.trails[i].stars,
                         
                       });
                       trailMarker.addListener('click', function() {
-                        console.log('click');
+                        console.log(i);
+                        $('#trailPhoto').attr("src", response.trails[i].imgMedium);
+                        $('#trailInfo').text("Trail name: " + response.trails[i].name + '\n' + 
+                        "Trail length: " + response.trails[i].length + '\n' +
+                        "Summary: " + response.trails[i].summary + '\n' + 
+                        "Rating: " + response.trails[i].stars + "/5"+ '\n' +
+                        "Location: " + response.trails[i].location);
                       });
                     }
             }); 
+
             //***********************space for hiking information******************** */
 
         });
@@ -122,7 +130,7 @@ function initAutocomplete() {
 
           // For each place, get the icon, name and location.
           var bounds = new google.maps.LatLngBounds();
-          
+          console.log("THIS: "+bounds);
           places.forEach(function(place) {
             if (!place.geometry) {
               console.log("Returned place contains no geometry");
@@ -158,13 +166,6 @@ function initAutocomplete() {
           });
           map.fitBounds(bounds);
         });
-        
-        function saveButton () {
-          
-          
-        };
-         
-         
-         
 }
+
 
