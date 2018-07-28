@@ -5,6 +5,14 @@
     margin-top: -35px;
 }
 
+.input-group-prepend {
+    background-color: green;
+}
+
+.navbar-nav{
+    background-color: green;
+}
+
 /* color for the title in the banner */
 .card-title-t {
     color: white;
