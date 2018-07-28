@@ -60,12 +60,8 @@ function initAutocomplete() {
         // Bias the SearchBox results towards current map's viewport.
         map.addListener('bounds_changed', function() {
             searchBox.setBounds(map.getBounds());
-            console.log(map.getBounds());
-
             var wLat =map.center.lat();
             var wLong = map.center.lng();
-            console.log("Latitude: "+wLat);
-            console.log("Long: "+wLong);
             APIcall(wLat, wLong);
 
 
@@ -87,7 +83,7 @@ function initAutocomplete() {
         
              var trails = response.trails;
         
-             console.log(trails);
+             
             
                 for (var i = 0; i < trails.length; i++) {
                     new google.maps.Marker({
@@ -96,6 +92,7 @@ function initAutocomplete() {
                         title: response.trails[i].name,
                     });
                 }
+                
             }); 
 
             //***********************space for hiking information******************** */
@@ -122,7 +119,7 @@ function initAutocomplete() {
 
           // For each place, get the icon, name and location.
           var bounds = new google.maps.LatLngBounds();
-          console.log("THIS: "+bounds);
+          
           places.forEach(function(place) {
             if (!place.geometry) {
               console.log("Returned place contains no geometry");
@@ -158,6 +155,13 @@ function initAutocomplete() {
           });
           map.fitBounds(bounds);
         });
+        
+        function saveButton () {
+          
+          
+        };
+         
+         
+         
 }
-
 
