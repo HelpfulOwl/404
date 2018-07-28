@@ -101,7 +101,6 @@ function initAutocomplete() {
                       });
                     }
             }); 
-
             //***********************space for hiking information******************** */
 
         });
