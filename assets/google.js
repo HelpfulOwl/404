@@ -1,6 +1,7 @@
 
     //*****************Geolocation on load****************** */
-
+    var trailArray = [];
+    
 
 //generates google map and finds current location
 function initAutocomplete() {
@@ -47,13 +48,13 @@ function initAutocomplete() {
 
     
         
-        console.log(google);
+        //console.log(google);
         
         // Create the search box and link it to the UI element.
         var input = document.getElementById('mapSearch');
         var searchBox = new google.maps.places.SearchBox(input);
         
-        console.log(searchBox, 'the search box');
+        
       
         
         
@@ -70,8 +71,8 @@ function initAutocomplete() {
              //*****************placing multiple markers on a map******************** */
             var googleLat = map.center.lat();
             var googleLong = map.center.lng();
-            console.log("eventlistener Lat" + googleLat);
-            console.log("eventlistener long" + googleLong);          
+            //console.log("eventlistener Lat" + googleLat);
+            //console.log("eventlistener long" + googleLong);          
             var queryURL = 'https://www.hikingproject.com/data/get-trails?lat='+ 
             googleLat + '&lon='+ 
             googleLong + '&maxResults=77&key=200310958-80eadbd0eda211e9f1bec2cca75b17cb';
@@ -81,11 +82,11 @@ function initAutocomplete() {
              url:queryURL,
              method: "GET"
             }).then(function(response) {
-             console.log(response);
+             //console.log(response);
         
              var trails = response.trails;
         
-             console.log(trails);
+             //console.log(trails);
             
                 for (let i = 0; i < trails.length; i++) {
                     var trailMarker = new google.maps.Marker({
@@ -95,21 +96,58 @@ function initAutocomplete() {
                         
                       });
                       trailMarker.addListener('click', function() {
-                        console.log(i);
+                        //console.log(i);
                         $('#trailPhoto').attr("src", response.trails[i].imgMedium);
                         $('#trailInfo').text("Trail name: " + response.trails[i].name + '\n' + 
                         "Trail length: " + response.trails[i].length + '\n' +
                         "Summary: " + response.trails[i].summary + '\n' + 
                         "Rating: " + response.trails[i].stars + "/5"+ '\n' +
                         "Location: " + response.trails[i].location);
-                      });
-                    }
-            }); 
 
+                        
+                        
+                      $("#saveButton").on("click", function (){ //placed ID and name into Object and then into array, then to local storage.
+                        var trailObj = {};
+                        var trailID = response.trails[i].id;
+                        var trailName = response.trails[i].name;
+                        trailObj.trail = trailID;
+                        trailObj.name = trailName;
+                        trailArray.push(trailObj);
+                        localStorage.setItem("trail",JSON.stringify(trailArray));
+                        $("#saveButton").off("click");
+                        
+
+                      
+                      //     var listing = $("#saved-body");
+                      //     //listing.append(`<li data-id=${listItems[i].trail}>${listItems[i].name}</li>`);
+                      //     //`<li>${name}</li>`//use this syntax directly above.
+                      //     $("li").on("click",function(){
+                      //       var test = $(this).attr("data-id");
+                            
+                      //     });
+                      // };
+                        //saves multiple times. unclear as to why. 
+                        // the first save works well, the 2nd will savve the 1st and the second...so on.
+                      });//closes saveButton click handler.
+                     
+                      });
+                     
+                   }
+                   
+                       
+                      
+                        
+                      
+            }); 
+           
             //***********************space for hiking information******************** */
 
         });
-        
+        if(!!localStorage.getItem("trail") ){
+          var listItems =JSON.parse( localStorage.getItem("trail"));
+         
+          console.log(listItems);                               
+          }
 
         
         var markers = [];

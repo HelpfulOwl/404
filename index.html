@@ -78,6 +78,20 @@
                       <p id = "trailInfo" class="card-text">Select your marker for trail info!</p>
                     </div>
                     <button type='button' class='btn btn-secondary'id='saveButton' aria-haspopup='true' aria-expanded='false'>Save Trail</button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" id="trailCard" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Saved Trails
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right bg-dark">
+                                <div class="card bg-dark" style="width: 35rem;">
+                                  <div class="card-body bg-dark" id="saved-body">
+                                    <h5 class="card-title">Saved Trails </h5>
+                                    
+                                    
+                                  </div><!--Closes .card-body-->
+                                </div><!--Closes .card bg-dark-->
+                        </div><!--Closes .dropdown-menu-->
+                    </div><!--Closes button group-->
                 </div>
             </div><!--Closes trailInfo-->
             <br>
@@ -117,10 +131,10 @@
                                     <p class="card-text" id="tempLo2">Lowest Temp:</p>
                                     <br><hr>
                                     <a href="https://darksky.net/forecast/35.994034,-78.898621/us12/en" target="_blank" class="card-link btn btn-success">Full Weather Summary</a>
-                                  </div><!--Closes card body-->
-                                </div>
-                        </div>
-                      </div>
+                                  </div><!--Closes .card-body-->
+                                </div><!--Closes .card bg-dark-->
+                        </div><!--Closes .dropdown-menu-->
+                    </div><!--Closes button group-->
 
 
                 </div>
