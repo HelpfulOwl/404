@@ -1,9 +1,35 @@
 
-    //*****************Geolocation on load****************** */
-    var trailArray = [];
     
+// This section gets whatever is in storage and places into trailArray//
+// Without this the array resets and only the first item saved gets set into storage
+// With none of the previous saves. i.e. the saved array is overwritten with an empty array.
+var trailArray = [];
+var listItems =JSON.parse(localStorage.getItem("trail"));
 
-//generates google map and finds current location
+function refill(){
+  for (var i=0; i<listItems.length; i++){
+    trailArray.push(listItems[i]);
+  };
+}
+refill();//function call to refill array with saved items. prevents pushing a new array.
+retriever();
+function retriever() {
+  var list = $("#saved-body");
+  if(!!localStorage.getItem("trail")){    //if there is something in local storage.
+    for(var i=0; i<listItems.length; i++){
+      var listing = listItems[i].name;
+      var trailID = listItems[i].trail;    
+      list.append(`<li data-id=${trailID}>${listing}</li>`); 
+
+    };//closes for
+  }//closes if;
+    $("li").on("click", function(){
+        var id = $(this).attr("data-id");
+        
+      });
+   
+}// closes retriever function. 
+
 function initAutocomplete() {
     var map, infoWindow;
     // function initMap() {
@@ -43,7 +69,7 @@ function initAutocomplete() {
                             'Error: Your browser doesn\'t support geolocation.');
       infoWindow.open(map);
     }
-
+    //retriever();
     //******************Search Box*********************/
 
     
@@ -102,11 +128,10 @@ function initAutocomplete() {
                         "Trail length: " + response.trails[i].length + '\n' +
                         "Summary: " + response.trails[i].summary + '\n' + 
                         "Rating: " + response.trails[i].stars + "/5"+ '\n' +
-                        "Location: " + response.trails[i].location);
+                        "Location: " + response.trails[i].location)
 
-                        
-                        
                       $("#saveButton").on("click", function (){ //placed ID and name into Object and then into array, then to local storage.
+                        //refill();
                         var trailObj = {};
                         var trailID = response.trails[i].id;
                         var trailName = response.trails[i].name;
@@ -115,39 +140,18 @@ function initAutocomplete() {
                         trailArray.push(trailObj);
                         localStorage.setItem("trail",JSON.stringify(trailArray));
                         $("#saveButton").off("click");
-                        
-
-                      
-                      //     var listing = $("#saved-body");
-                      //     //listing.append(`<li data-id=${listItems[i].trail}>${listItems[i].name}</li>`);
-                      //     //`<li>${name}</li>`//use this syntax directly above.
-                      //     $("li").on("click",function(){
-                      //       var test = $(this).attr("data-id");
-                            
-                      //     });
-                      // };
-                        //saves multiple times. unclear as to why. 
-                        // the first save works well, the 2nd will savve the 1st and the second...so on.
+                        $("#saved-body").empty();
+                        retriever()                        
                       });//closes saveButton click handler.
                      
                       });
                      
                    }
-                   
-                       
-                      
-                        
-                      
+             
             }); 
-           
-            //***********************space for hiking information******************** */
 
         });
-        if(!!localStorage.getItem("trail") ){
-          var listItems =JSON.parse( localStorage.getItem("trail"));
-         
-          console.log(listItems);                               
-          }
+        
 
         
         var markers = [];
