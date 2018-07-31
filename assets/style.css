@@ -22,6 +22,8 @@
     color: white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-shadow: -1px 0 rgb(17, 117, 117), 0 1px rgb(17, 117, 117), 1px 0 rgb(17, 117, 117), 0 -1px rgb(17, 117, 117);
+
+    
 }
 
 .card-title {
@@ -77,3 +79,9 @@ hr {
 };
 
 
+@media only screen and (max-width: 555px) {
+
+    .card-title-t {
+        font-size: 100%;
+    }
+}
