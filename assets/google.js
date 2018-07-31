@@ -1,8 +1,35 @@
 
-    //*****************Geolocation on load****************** */
+    
+// This section gets whatever is in storage and places into trailArray//
+// Without this the array resets and only the first item saved gets set into storage
+// With none of the previous saves. i.e. the saved array is overwritten with an empty array.
+var trailArray = [];
+var listItems =JSON.parse(localStorage.getItem("trail"));
 
+function refill(){
+  for (var i=0; i<listItems.length; i++){
+    trailArray.push(listItems[i]);
+  };
+}
+refill();//function call to refill array with saved items. prevents pushing a new array.
+retriever();
+function retriever() {
+  var list = $("#saved-body");
+  if(!!localStorage.getItem("trail")){    //if there is something in local storage.
+    for(var i=0; i<listItems.length; i++){
+      var listing = listItems[i].name;
+      var trailID = listItems[i].trail;    
+      list.append(`<li data-id=${trailID}>${listing}</li>`); 
 
-//generates google map and finds current location
+    };//closes for
+  }//closes if;
+    $("li").on("click", function(){
+        var id = $(this).attr("data-id");
+        
+      });
+   
+}// closes retriever function. 
+
 function initAutocomplete() {
     var map, infoWindow;
     // function initMap() {
@@ -42,18 +69,18 @@ function initAutocomplete() {
                             'Error: Your browser doesn\'t support geolocation.');
       infoWindow.open(map);
     }
-
+    //retriever();
     //******************Search Box*********************/
 
     
         
-        console.log(google);
+        //console.log(google);
         
         // Create the search box and link it to the UI element.
         var input = document.getElementById('mapSearch');
         var searchBox = new google.maps.places.SearchBox(input);
         
-        console.log(searchBox, 'the search box');
+        
       
         
         
@@ -70,8 +97,8 @@ function initAutocomplete() {
              //*****************placing multiple markers on a map******************** */
             var googleLat = map.center.lat();
             var googleLong = map.center.lng();
-            console.log("eventlistener Lat" + googleLat);
-            console.log("eventlistener long" + googleLong);          
+            //console.log("eventlistener Lat" + googleLat);
+            //console.log("eventlistener long" + googleLong);          
             var queryURL = 'https://www.hikingproject.com/data/get-trails?lat='+ 
             googleLat + '&lon='+ 
             googleLong + '&maxResults=77&key=200310958-80eadbd0eda211e9f1bec2cca75b17cb';
@@ -81,11 +108,11 @@ function initAutocomplete() {
              url:queryURL,
              method: "GET"
             }).then(function(response) {
-             console.log(response);
+             //console.log(response);
         
              var trails = response.trails;
         
-             console.log(trails);
+             //console.log(trails);
             
                 for (let i = 0; i < trails.length; i++) {
                     var trailMarker = new google.maps.Marker({
@@ -95,18 +122,33 @@ function initAutocomplete() {
                         
                       });
                       trailMarker.addListener('click', function() {
-                        console.log(i);
+                        //console.log(i);
                         $('#trailPhoto').attr("src", response.trails[i].imgMedium);
                         $('#trailInfo').text("Trail name: " + response.trails[i].name + '\n' + 
                         "Trail length: " + response.trails[i].length + '\n' +
                         "Summary: " + response.trails[i].summary + '\n' + 
                         "Rating: " + response.trails[i].stars + "/5"+ '\n' +
-                        "Location: " + response.trails[i].location);
-                      });
-                    }
-            }); 
+                        "Location: " + response.trails[i].location)
 
-            //***********************space for hiking information******************** */
+                      $("#saveButton").on("click", function (){ //placed ID and name into Object and then into array, then to local storage.
+                        //refill();
+                        var trailObj = {};
+                        var trailID = response.trails[i].id;
+                        var trailName = response.trails[i].name;
+                        trailObj.trail = trailID;
+                        trailObj.name = trailName;
+                        trailArray.push(trailObj);
+                        localStorage.setItem("trail",JSON.stringify(trailArray));
+                        $("#saveButton").off("click");
+                        $("#saved-body").empty();
+                        retriever()                        
+                      });//closes saveButton click handler.
+                     
+                      });
+                     
+                   }
+             
+            }); 
 
         });
         
