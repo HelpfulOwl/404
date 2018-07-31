@@ -19,7 +19,7 @@ function retriever() {
     for(var i=0; i<listItems.length; i++){
       var listing = listItems[i].name;
       var trailID = listItems[i].trail;    
-      list.append(`<li data-id=${trailID}>${listing}</li>`); 
+      list.append(`<li id='list-item' data-id=${trailID}>${listing}</li>`); 
 
     };//closes for
   }//closes if;
