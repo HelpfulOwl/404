@@ -53,6 +53,7 @@
     background-color: green;
     color: white;
     text-align: center;
+    margin: 0 auto;
 }
 
 hr {
@@ -80,10 +81,20 @@ hr {
     padding:5px;
     margin: 0 auto;
     margin-bottom: 5px;
-    background-color: green;
+    background-color: green;   
 }
 
+
 #saved-body {
+    color: white;
+}
+
+
+
+
+
+
+#list-item{
     color: white;
 }
 
@@ -95,6 +106,3 @@ hr {
     }
 }
 
-#demo {
-    color: white;
-}
