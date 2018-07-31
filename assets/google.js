@@ -124,10 +124,10 @@ function initAutocomplete() {
                       trailMarker.addListener('click', function() {
                         //console.log(i);
                         $('#trailPhoto').attr("src", response.trails[i].imgMedium);
-                        $('#trailInfo').text("Trail name: " + response.trails[i].name + '\n' + 
-                        "Trail length: " + response.trails[i].length + '\n' +
-                        "Summary: " + response.trails[i].summary + '\n' + 
-                        "Rating: " + response.trails[i].stars + "/5"+ '\n' +
+                        $('#trailInfo').html("Trail name: " + response.trails[i].name + '<br>' + 
+                        "Trail length: " + response.trails[i].length + '<br>' +
+                        "Summary: " + response.trails[i].summary + '<br>' + 
+                        "Rating: " + response.trails[i].stars + "/5"+ '<br>' +
                         "Location: " + response.trails[i].location)
 
                       $("#saveButton").on("click", function (){ //placed ID and name into Object and then into array, then to local storage.
