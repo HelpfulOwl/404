@@ -59,24 +59,33 @@ hr {
     background-color: green;
 }
 
+.btn {
+    display: flex;
+    justify-content: center;
+}
 
 .footer {
    position: fixed;
    left: 0;
    bottom: 0;
    width: 100%;
-   background-color: rgb(49, 49, 49);
+   background-color: rgb(37, 33, 33);
    color: white;
    text-align: center;
+   padding-top: 10px;
 }
 
-#saveButton{
+#saveButton {
     width:85px;
     padding:5px;
     margin: 0 auto;
     margin-bottom: 5px;
     background-color: green;
-};
+}
+
+#saved-body {
+    color: white;
+}
 
 
 @media only screen and (max-width: 555px) {
@@ -84,4 +93,8 @@ hr {
     .card-title-t {
         font-size: 100%;
     }
+}
+
+#demo {
+    color: white;
 }
