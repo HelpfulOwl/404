@@ -19,7 +19,7 @@ function retriever() {
     for(var i=0; i<listItems.length; i++){
       var listing = listItems[i].name;
       var trailID = listItems[i].trail;    
-      list.append(`<li data-id=${trailID}>${listing}</li>`); 
+      list.append(`<li id='list-item' data-id=${trailID}>${listing}</li>`); 
 
     };//closes for
   }//closes if;
@@ -120,6 +120,15 @@ function initAutocomplete() {
                         map: map,
                         title: "" + response.trails[i].name + '\n' + 'Rating: ' + response.trails[i].stars,
                         
+                      });
+                      trailMarker.addListener('click', function() {
+                        var infowindow = new google.maps.InfoWindow({
+                          position: { lat: response.trails[i].latitude, lng: response.trails[i].longitude},
+                          map: map,
+                          // title: "" + response.trails[i].name + '\n' + 'Rating: ' + response.trails[i].stars,
+                          content:"" + response.trails[i].name + '<br>' + 'Rating: ' + response.trails[i].stars,
+                        });
+                        infowindow.open(map);
                       });
                       trailMarker.addListener('click', function() {
                         //console.log(i);
