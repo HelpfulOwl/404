@@ -57,8 +57,11 @@
     margin: 0 auto;
 }
 
-#saved-trail {
-    text-align: center;
+#saved-trails {
+    width:115px;
+    padding:5px;
+    margin: 0 auto;
+    margin-bottom: 5px; 
 }
 
 hr {
@@ -88,6 +91,8 @@ hr {
     margin-bottom: 5px;
     background-color: green;   
 }
+
+
 
 
 #saved-body {
