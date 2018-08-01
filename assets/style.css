@@ -56,6 +56,10 @@
     text-align: center;
 }
 
+#saved-trail {
+    text-align: center;
+}
+
 hr {
     background-color: green;
 }
