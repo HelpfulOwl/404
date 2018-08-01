@@ -122,6 +122,15 @@ function initAutocomplete() {
                         
                       });
                       trailMarker.addListener('click', function() {
+                        var infowindow = new google.maps.InfoWindow({
+                          position: { lat: response.trails[i].latitude, lng: response.trails[i].longitude},
+                          map: map,
+                          // title: "" + response.trails[i].name + '\n' + 'Rating: ' + response.trails[i].stars,
+                          content:"" + response.trails[i].name + '<br>' + 'Rating: ' + response.trails[i].stars,
+                        });
+                        infowindow.open(map);
+                      });
+                      trailMarker.addListener('click', function() {
                         //console.log(i);
                         $('#trailPhoto').attr("src", response.trails[i].imgMedium);
                         $('#trailInfo').html("Trail name: " + response.trails[i].name + '<br>' + 
