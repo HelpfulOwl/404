@@ -58,76 +58,65 @@
                             </div>
                         </div>
                     </div>
-<br>
-                    <div class="card" id="trailCard">
-                        <div class="card bg-dark" id="tiBody">
-                            <div class="card-body bg-dark">
-                                <h5 class="card-title-trail">Trail Info</h5>
-                                <hr>
-                                <p id = "trailInfo" class="card-text">Select your marker for trail info!</p>
-                            </div>
-                            <button type='button' class='btn btn-secondary'id='saveButton' 
-                            aria-haspopup='true' aria-expanded='false'>Save Trail</button>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-secondary dropdown-toggle" 
-                                id="trailCard" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Saved Trails</button>
-                                <div class="dropdown-menu dropdown-menu-right bg-dark">
-                                    <div class="card bg-dark" style="width: 35rem;">
-                                        <div class="card-body bg-dark" id="saved-body">
-                                            <h5 class="card-title">Saved Trails </h5>
-                                        </div>
-                                    </div>
-                                        <button type='button' class='btn btn-secondary'id='delete' 
-                                        aria-haspopup='true' aria-expanded='false'>Delete All</button>
-                                </div><!--Closes .dropdown-menu-->
-                            </div><!--Closes button group-->
-                        </div>
-                    </div><!--Closes trailCard-->
-<br>
-                </div><!--Closes column-->
+                    <button type='button' class='btn btn-secondary'id='saveButton' aria-haspopup='true' aria-expanded='false'>Save Trail</button>
+                    <div class="btn-group">
+
+                    <button type="button" class="btn btn-outline-success dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Saved Trails</button>
+
+                    <div class="dropdown-menu dropdown-menu-right bg-dark">
+                    <div class="card bg-dark" style="width: 35rem;">
+                    <div class="card-body bg-dark" id="saved-body">
+                    <h4 class="card-title card" id="trailCard">Saved Trails</h4>
+                                    
+                                    
+                                  </div><!--Closes .card-body-->
+                                </div><!--Closes .card bg-dark-->
+                        </div><!--Closes .dropdown-menu-->
+                    </div><!--Closes button group-->
+                </div>
+            </div><!--Closes trailInfo-->
+            <br>
+        </div>
 
 
-                <div class="col-md-4">
-                    <div class="text-center card bg-dark" id="greenCard">
-                        <div class="card-header">WEATHER</div>
-                        <div class="card-body">
-                            <p class="card-text" id="summary"></p>
-                            <p class="card-text" id="temp"></p>
-                            <p class="card-text" id="nsd"></p>
+        <div class="col-md-4">
+            <div class="text-center card bg-dark" id="greenCard">
+                <div class="card-header">WEATHER</div>
+                <div class="card-body">
+                  <p class="card-text" id="summary"></p>
+                  <p class="card-text" id="temp"></p>
+                  <p class="card-text" id="nsd"></p>
 
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-secondary dropdown-toggle" id="trailCard" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Next 3 Days
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right bg-dark">
-                                    <div class="card bg-dark" style="width: 35rem;">
-                                        <div class="card-body bg-dark" id="card-body">
-                                            <h5 class="card-title">Next 3-Day Forecast</h5>
-                                            <br><hr>
-                                            <p class="card-text" id="date0">Date:</p>
-                                            <p class="card-text" id="summary0">Summary:</p>
-                                            <p class="card-text" id="tempHi0">Highest Temp:</p>
-                                            <p class="card-text" id="tempLo0">Lowest Temp:</p>
-                                            <br><hr>
-                                            <p class="card-text" id="date1">Date:</p>
-                                            <p class="card-text" id="summary1">Summary:</p>
-                                            <p class="card-text" id="tempHi1">Highest Temp:</p>
-                                            <p class="card-text" id="tempLo1">Lowest Temp:</p>
-                                            <br><hr>
-                                            <p class="card-text" id="date2">Date:</p>
-                                            <p class="card-text" id="summary2">Summary:</p>
-                                            <p class="card-text" id="tempHi2">Highest Temp:</p>
-                                            <p class="card-text" id="tempLo2">Lowest Temp:</p>
-                                            <br><hr>
-                                            <a href="https://darksky.net/forecast/35.994034,-78.898621/us12/en" target="_blank" class="card-link btn btn-success">Full Weather Summary</a>
-                                        </div><!--Closes .card-body-->
-                                    </div><!--Closes .card bg-dark-->
-                                </div><!--Closes .dropdown-menu-->
-                            </div><!--Closes button group-->
-                        </div>
-                    </div>
-                    <br>
+                  <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" id="trailCard" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Next 3 Days
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right bg-dark">
+                                <div class="card bg-dark" style="width: 35rem;">
+                                  <div class="card-body bg-dark" id="card-body">
+                                    <h5 class="card-title">Next 3-Day Forecast</h5>
+                                    <br><hr>
+                                    <p class="card-text" id="date0">Date:</p>
+                                    <p class="card-text" id="summary0">Summary:</p>
+                                    <p class="card-text" id="tempHi0">Highest Temp:</p>
+                                    <p class="card-text" id="tempLo0">Lowest Temp:</p>
+                                    <br><hr>
+                                    <p class="card-text" id="date1">Date:</p>
+                                    <p class="card-text" id="summary1">Summary:</p>
+                                    <p class="card-text" id="tempHi1">Highest Temp:</p>
+                                    <p class="card-text" id="tempLo1">Lowest Temp:</p>
+                                    <br><hr>
+                                    <p class="card-text" id="date2">Date:</p>
+                                    <p class="card-text" id="summary2">Summary:</p>
+                                    <p class="card-text" id="tempHi2">Highest Temp:</p>
+                                    <p class="card-text" id="tempLo2">Lowest Temp:</p>
+                                    <br><hr>
+                                    <a href="https://darksky.net/forecast/us12/en" target="_blank" class="card-link btn btn-success">Full Weather Summary</a>
+                                  </div><!--Closes .card-body-->
+                                </div><!--Closes .card bg-dark-->
+                        </div><!--Closes .dropdown-menu-->
+                    </div><!--Closes button group-->
+
 
                     <div class="card" id="greenCard">
                         <div class="card bg-dark text-white">
