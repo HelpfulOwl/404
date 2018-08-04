@@ -1,158 +1,141 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-    <link rel= "stylesheet" href="assets/reset.css">
-    <link rel= "stylesheet" href="assets/style.css">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+        <link rel= "stylesheet" href="assets/reset.css">
+        <link rel= "stylesheet" href="assets/style.css">
+        <title>Fair Weather Hiker</title>
+    </head>
 
-    <title>Fair Weather Hiker</title>
-
-</head>
-
-
-<body background="assets/images/logBG.jpeg">
-    <div class="container">
-    <header>
-            <div class="card bg-dark text-white" id="greenCard">
-                  <img class="card-img" src="assets/images/fwhBanner2.jpg" alt="Card image">
+    <body background="assets/images/logBG.jpeg">
+        <div class="container">
+            <header>
+                <div class="card bg-dark text-white" id="greenCard">
+                    <img class="card-img" src="assets/images/fwhBanner2.jpg" alt="Card image">
                     <div class="card-img-overlay">
-                      <br>
-                      <h1 class="card-title-t display-4">Fair Weather Hiker</h1>
+                        <br>
+                        <h1 class="card-title-t display-4">Fair Weather Hiker</h1>
                     </div>
-            </div>
-    </header>
-    <div class="row">
-
-        <div class="col-md-12">
-            <div class="card" id="greenCard">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Your Location:</a>
-                
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto card">
-
-                    <li>
-                        <div class="input-group-prepend card">
-                            <input id= "mapSearch" class="form-control mr-sm-2" type="search" placeholder="Search me!" aria-label="Search">
-                        </div>
-                    </li>
-                    
-                  </ul>
-
                 </div>
-            </nav>
-            </div>
-        </div>
-    </div>
-    
-    <br>
-    
-    <div class="row">
-        <div class="col-md-8">
-
-            <div class="card bg-dark" id="greenCard">
-            <div class="jumbotron jumbotron-fluid bg-dark">
-                <div class="container">
-                  <h1 class="display-5">Hiking Map</h1>
-                  <div id= "googleMap" class= "card"></div> 
-                </div>
-            </div>
-            </div>
-
-            <br>
-
-            <div class="card" id="trailCard">
-                <div class="card bg-dark" id="tiBody">
-                    <div class="card-body bg-dark">
-                      <h5 class="card-title-trail">Trail Info</h5>
-                      <hr>
-                      <p id = "trailInfo" class="card-text">Select your marker for trail info!</p>
-                    </div>
-                    <button type='button' class='btn btn-secondary'id='saveButton' aria-haspopup='true' aria-expanded='false'>Save Trail</button>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" id="trailCard" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Saved Trails
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right bg-dark">
-                                <div class="card bg-dark" style="width: 35rem;">
-                                  <div class="card-body bg-dark" id="saved-body">
-                                    <h5 class="card-title">Saved Trails </h5>
-                                    
-                                    
-                                  </div><!--Closes .card-body-->
-                                </div><!--Closes .card bg-dark-->
-                        </div><!--Closes .dropdown-menu-->
-                    </div><!--Closes button group-->
-                </div>
-            </div><!--Closes trailInfo-->
-            <br>
-        </div>
-
-
-        <div class="col-md-4">
-            <div class="text-center card bg-dark" id="greenCard">
-                <div class="card-header">WEATHER</div>
-                <div class="card-body">
-                  <p class="card-text" id="summary"></p>
-                  <p class="card-text" id="temp"></p>
-                  <p class="card-text" id="nsd"></p>
-
-                  <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" id="trailCard" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Next 3 Days
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right bg-dark">
-                                <div class="card bg-dark" style="width: 35rem;">
-                                  <div class="card-body bg-dark" id="card-body">
-                                    <h5 class="card-title">Next 3-Day Forecast</h5>
-                                    <br><hr>
-                                    <p class="card-text" id="date0">Date:</p>
-                                    <p class="card-text" id="summary0">Summary:</p>
-                                    <p class="card-text" id="tempHi0">Highest Temp:</p>
-                                    <p class="card-text" id="tempLo0">Lowest Temp:</p>
-                                    <br><hr>
-                                    <p class="card-text" id="date1">Date:</p>
-                                    <p class="card-text" id="summary1">Summary:</p>
-                                    <p class="card-text" id="tempHi1">Highest Temp:</p>
-                                    <p class="card-text" id="tempLo1">Lowest Temp:</p>
-                                    <br><hr>
-                                    <p class="card-text" id="date2">Date:</p>
-                                    <p class="card-text" id="summary2">Summary:</p>
-                                    <p class="card-text" id="tempHi2">Highest Temp:</p>
-                                    <p class="card-text" id="tempLo2">Lowest Temp:</p>
-                                    <br><hr>
-                                    <a href="https://darksky.net/forecast/35.994034,-78.898621/us12/en" target="_blank" class="card-link btn btn-success">Full Weather Summary</a>
-                                  </div><!--Closes .card-body-->
-                                </div><!--Closes .card bg-dark-->
-                        </div><!--Closes .dropdown-menu-->
-                    </div><!--Closes button group-->
-
-
-                </div>
-            </div>
-            <br>
-
-            <div class="card" id="greenCard">
-                <div class="card bg-dark text-white">
-                    <img class="card-img" id="trailPhoto" src="assets/images/woodBG.jpg" onerror="this.src='assets/images/woodBGnia.jpg';">
-                  </div>
-                  </div>
-
-                  <!-- closes trail photo -->
-
+            </header>
             
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card" id="greenCard">
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                            <a class="navbar-brand" href="#">Your Location:</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                             aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+              
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto card">
+                                <li>
+                                    <div class="input-group-prepend card">
+                                        <input id= "mapSearch" class="form-control mr-sm-2" type="search" placeholder="Search me!" aria-label="Search">
+                                    </div>
+                                </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+<br>
+    
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card bg-dark" id="greenCard">
+                        <div class="jumbotron jumbotron-fluid bg-dark">
+                            <div class="container">
+                                <h1 class="display-5">Hiking Map</h1>
+                                <div id= "googleMap" class= "card"></div> 
+                            </div>
+                        </div>
+                    </div>
+<br>
+                    <div class="card" id="trailCard">
+                        <div class="card bg-dark" id="tiBody">
+                            <div class="card-body bg-dark">
+                                <h5 class="card-title-trail">Trail Info</h5>
+                                <hr>
+                                <p id = "trailInfo" class="card-text">Select your marker for trail info!</p>
+                            </div>
+                            <button type='button' class='btn btn-secondary'id='saveButton' 
+                            aria-haspopup='true' aria-expanded='false'>Save Trail</button>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" 
+                                id="trailCard" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Saved Trails</button>
+                                <div class="dropdown-menu dropdown-menu-right bg-dark">
+                                    <div class="card bg-dark" style="width: 35rem;">
+                                        <div class="card-body bg-dark" id="saved-body">
+                                            <h5 class="card-title">Saved Trails </h5>
+                                        </div>
+                                    </div>
+                                        <button type='button' class='btn btn-secondary'id='delete' 
+                                        aria-haspopup='true' aria-expanded='false'>Delete All</button>
+                                </div><!--Closes .dropdown-menu-->
+                            </div><!--Closes button group-->
+                        </div>
+                    </div><!--Closes trailCard-->
+<br>
+                </div><!--Closes column-->
 
-        </div>
-    </div>
+
+                <div class="col-md-4">
+                    <div class="text-center card bg-dark" id="greenCard">
+                        <div class="card-header">WEATHER</div>
+                        <div class="card-body">
+                            <p class="card-text" id="summary"></p>
+                            <p class="card-text" id="temp"></p>
+                            <p class="card-text" id="nsd"></p>
+
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" id="trailCard" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Next 3 Days
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right bg-dark">
+                                    <div class="card bg-dark" style="width: 35rem;">
+                                        <div class="card-body bg-dark" id="card-body">
+                                            <h5 class="card-title">Next 3-Day Forecast</h5>
+                                            <br><hr>
+                                            <p class="card-text" id="date0">Date:</p>
+                                            <p class="card-text" id="summary0">Summary:</p>
+                                            <p class="card-text" id="tempHi0">Highest Temp:</p>
+                                            <p class="card-text" id="tempLo0">Lowest Temp:</p>
+                                            <br><hr>
+                                            <p class="card-text" id="date1">Date:</p>
+                                            <p class="card-text" id="summary1">Summary:</p>
+                                            <p class="card-text" id="tempHi1">Highest Temp:</p>
+                                            <p class="card-text" id="tempLo1">Lowest Temp:</p>
+                                            <br><hr>
+                                            <p class="card-text" id="date2">Date:</p>
+                                            <p class="card-text" id="summary2">Summary:</p>
+                                            <p class="card-text" id="tempHi2">Highest Temp:</p>
+                                            <p class="card-text" id="tempLo2">Lowest Temp:</p>
+                                            <br><hr>
+                                            <a href="https://darksky.net/forecast/35.994034,-78.898621/us12/en" target="_blank" class="card-link btn btn-success">Full Weather Summary</a>
+                                        </div><!--Closes .card-body-->
+                                    </div><!--Closes .card bg-dark-->
+                                </div><!--Closes .dropdown-menu-->
+                            </div><!--Closes button group-->
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="card" id="greenCard">
+                        <div class="card bg-dark text-white">
+                            <img class="card-img" id="trailPhoto" src="assets/images/woodBG.jpg" onerror="this.src='assets/images/woodBGnia.jpg';">
+                        </div>
+                    </div>
+                </div>
+            </div><!--Closes row-->
 
 
 
@@ -160,10 +143,10 @@
 <br><br><br>
 
     
-    <div class="footer">
-    <p>FWH 2018</p>
-    </div>
-    </div>
+            <div class="footer">
+                <p>FWH 2018</p>
+            </div>
+        </div><!--Closes container-->
 
     <!-- Optional JavaScript -->
     
@@ -186,5 +169,5 @@
     <!-- <script src="assets/radar.js"></script> -->
    <!-- <script src="assets/hikingmarker.js"></script> -->
 
-</body>
+    </body>
 </html>
