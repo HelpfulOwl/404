@@ -79,19 +79,58 @@ map.addListener('bounds_changed', function() {
     googleLat + '&lon='+ googleLong + '&maxResults=77&key=200310958-80eadbd0eda211e9f1bec2cca75b17cb';
         
             
+
     $.ajax({
         url:queryURL,
         method: "GET"
       }).then(function(response) {
         var trails = response.trails;
       
-    for (let i = 0; i < trails.length; i++) {
-          
-      var trailMarker = new google.maps.Marker({
-        position: { lat: response.trails[i].latitude, lng: response.trails[i].longitude},
-        map: map,
-        title: "" + response.trails[i].name + '\n' + 'Rating: ' + response.trails[i].stars,  
-      });
+                for (let i = 0; i < trails.length; i++) {
+                    var trailMarker = new google.maps.Marker({
+                        position: { lat: response.trails[i].latitude, lng: response.trails[i].longitude},
+                        map: map,
+                        title: "" + response.trails[i].name + '\n' + 'Rating: ' + response.trails[i].stars,
+                        
+                      });
+                      trailMarker.addListener('click', function() {
+                        var infowindow = new google.maps.InfoWindow({
+                          position: { lat: response.trails[i].latitude, lng: response.trails[i].longitude},
+                          map: map,
+                          // title: "" + response.trails[i].name + '\n' + 'Rating: ' + response.trails[i].stars,
+                          content:"" + response.trails[i].name + '<br>' + 'Rating: ' + response.trails[i].stars,
+                        });
+                        infowindow.open(map);
+                      });
+                      trailMarker.addListener('click', function() {
+                        //console.log(i);
+                        $('#trailPhoto').attr("src", response.trails[i].imgMedium);
+                        $('#trailInfo').html("Trail name: " + response.trails[i].name + '<br>' + 
+                        "Trail length: " + response.trails[i].length + '<br>' +
+                        "Summary: " + response.trails[i].summary + '<br>' + 
+                        "Rating: " + response.trails[i].stars + "/5"+ '<br>' +
+                        "Location: " + response.trails[i].location)
+
+                      $("#saveButton").on("click", function (){ //placed ID and name into Object and then into array, then to local storage.
+                        //refill();
+                        var trailObj = {};
+                        var trailID = response.trails[i].id;
+                        var trailName = response.trails[i].name;
+                        trailObj.trail = trailID;
+                        trailObj.name = trailName;
+                        trailArray.push(trailObj);
+                        localStorage.setItem("trail",JSON.stringify(trailArray));
+                        $("#saveButton").off("click");
+                        $("#saved-body").empty();
+                        retriever()                        
+                      });//closes saveButton click handler.
+                     
+                      });
+                     
+                   }
+             
+            }); 
+
 
       trailMarker.addListener('click', function() {
         $('#trailPhoto').attr("src", response.trails[i].imgMedium);
