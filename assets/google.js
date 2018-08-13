@@ -1,8 +1,3 @@
-
-    
-// This section gets whatever is in storage and places into trailArray//
-// Without this the array resets and only the first item saved gets set into storage
-// With none of the previous saves. i.e. the saved array is overwritten with an empty array.
 var trailArray = [];
 var listItems =JSON.parse(localStorage.getItem("trail"));
 
@@ -10,57 +5,51 @@ function refill(){
   for (var i=0; i<listItems.length; i++){
     trailArray.push(listItems[i]);
   };
-}
-refill();//function call to refill array with saved items. prevents pushing a new array.
+};
+
+refill();
 retriever();
+
 function retriever() {
   var list = $("#saved-body");
-  if(!!localStorage.getItem("trail")){    //if there is something in local storage.
-    for(var i=0; i<listItems.length; i++){
-      var listing = listItems[i].name;
-      var trailID = listItems[i].trail;    
-      list.append(`<li id='list-item' data-id=${trailID}>${listing}</li>`); 
-
+  var getItems = JSON.parse(localStorage.getItem("trail"));
+  if(localStorage.getItem("trail")){    //if there is something in local storage.
+    for(var i=0; i<getItems.length; i++){
+      console.log("INSIDE FOR LOOP")
+      var listing = getItems[i].name;
+      var trailID = getItems[i].trail;    
+      list.append(`<li id='list-item' data-id=${trailID}>${listing}</li>`);
+      list.append(`<button id=${trailID}>x</button>`);
     };//closes for
-  }//closes if;
-    $("li").on("click", function(){
-        var id = $(this).attr("data-id");
-        
-      });
-   
-}// closes retriever function. 
+  };
+};
 
 function initAutocomplete() {
     var map, infoWindow;
-    // function initMap() {
-      map = new google.maps.Map(document.getElementById('googleMap'), {
-        center: {lat: 35.994034, lng: -78.898621},
+    map = new google.maps.Map(document.getElementById('googleMap'), {
+      center: {lat: 35.994034, lng: -78.898621},
+      zoom: 10
+    });
 
-        zoom: 10
-      });
-      infoWindow = new google.maps.InfoWindow;
+    infoWindow = new google.maps.InfoWindow;
 
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
 
-      // Try HTML5 geolocation.
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
-
-          infoWindow.setPosition(pos);
-          infoWindow.setContent('Current Location');
-          infoWindow.open(map);
-          map.setCenter(pos);
-        }, function() {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent('Current Location');
+        infoWindow.open(map);
+        map.setCenter(pos);
+      }, function() {
           handleLocationError(true, infoWindow, map.getCenter());
         });
       } else {
-        // Browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
-      }
-    // }
+      };
 
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       infoWindow.setPosition(pos);
@@ -68,52 +57,35 @@ function initAutocomplete() {
                             'Error: The Geolocation service failed.' :
                             'Error: Your browser doesn\'t support geolocation.');
       infoWindow.open(map);
-    }
-    //retriever();
-    //******************Search Box*********************/
-
-    
-        
-        //console.log(google);
+    };
         
         // Create the search box and link it to the UI element.
-        var input = document.getElementById('mapSearch');
-        var searchBox = new google.maps.places.SearchBox(input);
+    var input = document.getElementById('mapSearch');
+    var searchBox = new google.maps.places.SearchBox(input);
         
-        
-      
-        
-        
-        // Bias the SearchBox results towards current map's viewport.
-        map.addListener('bounds_changed', function() {
-            searchBox.setBounds(map.getBounds());
+map.addListener('bounds_changed', function() {
+      searchBox.setBounds(map.getBounds());
 
-            var wLat =map.center.lat();
-            var wLong = map.center.lng();
+      var wLat =map.center.lat();
+      var wLong = map.center.lng();
     
-            APIcall(wLat, wLong);
+      APIcall(wLat, wLong);
 
 
-             //*****************placing multiple markers on a map******************** */
-            var googleLat = map.center.lat();
-            var googleLong = map.center.lng();
-            //console.log("eventlistener Lat" + googleLat);
-            //console.log("eventlistener long" + googleLong);          
-            var queryURL = 'https://www.hikingproject.com/data/get-trails?lat='+ 
-            googleLat + '&lon='+ 
-            googleLong + '&maxResults=77&key=200310958-80eadbd0eda211e9f1bec2cca75b17cb';
+    //*****************placing multiple markers on a map******************** */
+    var googleLat = map.center.lat();
+    var googleLong = map.center.lng();         
+    var queryURL = 'https://www.hikingproject.com/data/get-trails?lat='+ 
+    googleLat + '&lon='+ googleLong + '&maxResults=77&key=200310958-80eadbd0eda211e9f1bec2cca75b17cb';
         
             
-         $.ajax({
-             url:queryURL,
-             method: "GET"
-            }).then(function(response) {
-             //console.log(response);
-        
-             var trails = response.trails;
-        
-             //console.log(trails);
-            
+
+    $.ajax({
+        url:queryURL,
+        method: "GET"
+      }).then(function(response) {
+        var trails = response.trails;
+      
                 for (let i = 0; i < trails.length; i++) {
                     var trailMarker = new google.maps.Marker({
                         position: { lat: response.trails[i].latitude, lng: response.trails[i].longitude},
@@ -159,7 +131,31 @@ function initAutocomplete() {
              
             }); 
 
-        });
+
+      trailMarker.addListener('click', function() {
+        $('#trailPhoto').attr("src", response.trails[i].imgMedium);
+        $('#trailInfo').html("Trail name: " + response.trails[i].name + '<br>' + 
+        "Trail length: " + response.trails[i].length + '<br>' +
+        "Summary: " + response.trails[i].summary + '<br>' + 
+        "Rating: " + response.trails[i].stars + "/5"+ '<br>' +
+        "Location: " + response.trails[i].location);
+
+      $("#saveButton").on("click", function (){ //placed ID and name into Object and then into array, then to local storage.
+        var trailObj = {};
+        var trailID = response.trails[i].id;
+        var trailName = response.trails[i].name;
+        trailObj.trail = trailID;
+        trailObj.name = trailName;
+        trailArray.push(trailObj);
+        localStorage.setItem("trail",JSON.stringify(trailArray));
+        $("#saveButton").off("click");
+        $("#saved-body").empty();
+        retriever();                       
+        });//closes saveButton click handler.
+      });   
+    }
+  }); 
+});
         
 
         
@@ -218,5 +214,13 @@ function initAutocomplete() {
           map.fitBounds(bounds);
         });
 }
+
+$("#delete").on("click",function(){
+  console.log("DELETE STORAGE")
+  localStorage.removeItem("trail");
+  trailArray = [];
+  $("#saved-body").empty();
+
+});
 
 

@@ -1,81 +1,62 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-    <link rel= "stylesheet" href="assets/reset.css">
-    <link rel= "stylesheet" href="assets/style.css">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+        <link rel= "stylesheet" href="assets/reset.css">
+        <link rel= "stylesheet" href="assets/style.css">
+        <title>Fair Weather Hiker</title>
+    </head>
 
-    <title>Fair Weather Hiker</title>
-
-</head>
-
-
-<body background="assets/images/logBG.jpeg">
-    <div class="container">
-    <header>
-            <div class="card bg-dark text-white" id="greenCard">
-                  <img class="card-img" src="assets/images/fwhBanner2.jpg" alt="Card image">
+    <body background="assets/images/logBG.jpeg">
+        <div class="container">
+            <header>
+                <div class="card bg-dark text-white" id="greenCard">
+                    <img class="card-img" src="assets/images/fwhBanner2.jpg" alt="Card image">
                     <div class="card-img-overlay">
-                      <br>
-                      <h1 class="card-title-t display-4">Fair Weather Hiker</h1>
+                        <br>
+                        <h1 class="card-title-t display-4">Fair Weather Hiker</h1>
                     </div>
-            </div>
-    </header>
-    <div class="row">
-
-        <div class="col-md-12">
-            <div class="card" id="greenCard">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Your Location:</a>
-                
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
+                </div>
+            </header>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card" id="greenCard">
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                            <a class="navbar-brand" href="#">Your Location:</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                             aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
               
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto card">
-
-                    <li>
-                        <div class="input-group-prepend card">
-                            <input id= "mapSearch" class="form-control mr-sm-2" type="search" placeholder="Search me!" aria-label="Search">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto card">
+                                <li>
+                                    <div class="input-group-prepend card">
+                                        <input id= "mapSearch" class="form-control mr-sm-2" type="search" placeholder="Search me!" aria-label="Search">
+                                    </div>
+                                </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+<br>
+    
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card bg-dark" id="greenCard">
+                        <div class="jumbotron jumbotron-fluid bg-dark">
+                            <div class="container">
+                                <h1 class="display-5">Hiking Map</h1>
+                                <div id= "googleMap" class= "card"></div> 
+                            </div>
                         </div>
-                    </li>
-                    
-                  </ul>
-
-                </div>
-            </nav>
-            </div>
-        </div>
-    </div>
-    
-    <br>
-    
-    <div class="row">
-        <div class="col-md-8">
-
-            <div class="card bg-dark" id="greenCard">
-            <div class="jumbotron jumbotron-fluid bg-dark">
-                <div class="container">
-                  <h1 class="display-5">Hiking Map</h1>
-                  <div id= "googleMap" class= "card"></div> 
-                </div>
-            </div>
-            </div>
-
-            <br>
-
-            <div class="card" id="trailCard">
-                <div class="card bg-dark" id="tiBody">
-                    <div class="card-body bg-dark">
-                      <h5 class="card-title-trail">Trail Info</h5>
-                      <hr>
-                      <p id = "trailInfo" class="card-text">Select your marker for trail info!</p>
                     </div>
                     <button type="button" class="btn btn-secondary" id="saveButton" aria-haspopup="true" aria-expanded="false">Save Trail</button>
                     
@@ -139,22 +120,13 @@
                     </div><!--Closes button group-->
 
 
+                    <div class="card" id="greenCard">
+                        <div class="card bg-dark text-white">
+                            <img class="card-img" id="trailPhoto" src="assets/images/woodBG.jpg" onerror="this.src='assets/images/woodBGnia.jpg';">
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <br>
-
-            <div class="card" id="greenCard">
-                <div class="card bg-dark text-white">
-                    <img class="card-img" id="trailPhoto" src="assets/images/woodBG.jpg" onerror="this.src='assets/images/woodBGnia.jpg';">
-                  </div>
-                  </div>
-
-                  <!-- closes trail photo -->
-
-            
-
-        </div>
-    </div>
+            </div><!--Closes row-->
 
 
 
@@ -162,10 +134,10 @@
 <br><br><br>
 
     
-    <div class="footer">
-    <p>FWH 2018</p>
-    </div>
-    </div>
+            <div class="footer">
+                <p>FWH 2018</p>
+            </div>
+        </div><!--Closes container-->
 
     <!-- Optional JavaScript -->
     
@@ -188,5 +160,5 @@
     <!-- <script src="assets/radar.js"></script> -->
    <!-- <script src="assets/hikingmarker.js"></script> -->
 
-</body>
+    </body>
 </html>
